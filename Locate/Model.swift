@@ -72,12 +72,17 @@ class Model: NSObject, ObservableObject {
         selection = [place.id]
     }
 
-    @MainActor func copy(ids: Set<Place.ID>) {
+    @MainActor func selectedUrls() -> [URL] {
         let urls = selection.compactMap { id in
             return places.first { $0.id == id }
         }.compactMap {
             return URL(string: $0.link)
-        }.map {
+        }
+        return urls
+    }
+
+    @MainActor func copy(ids: Set<Place.ID>) {
+        let urls = selectedUrls().map {
             return $0 as NSURL
         }
         print("copy: \(urls)")

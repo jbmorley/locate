@@ -23,7 +23,7 @@ struct PlaceList: View {
             }
         }
         .contextMenu(forSelectionType: Place.ID.self) { selection in
-            Button("View") {
+            Button("Open") {
                 model.open(ids: selection)
             }
             Divider()

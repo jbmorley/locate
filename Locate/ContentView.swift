@@ -38,6 +38,7 @@ struct ContentView: View {
 
                 // TODO: Separate these actions out into groups.
                 ToolbarItemGroup {
+
                     Button {
                         model.open(ids: model.selection)
                     } label: {
@@ -46,6 +47,8 @@ struct ContentView: View {
                     .help("Open in Safari")
                     .keyboardShortcut(.return, modifiers: [])
                     .disabled(model.selection.isEmpty)
+
+
                     Button {
                         model.delete(ids: model.selection)
                     } label: {
@@ -54,15 +57,25 @@ struct ContentView: View {
                     .help("Delete")
                     .keyboardShortcut(.delete)
                     .disabled(model.selection.isEmpty)
+
+                    ShareLink(items: model.selectedUrls()) {
+                        Image(systemName: "square.and.arrow.up")
+                    }
+                    .disabled(model.selection.isEmpty)
+
                 }
-                ToolbarItem {
+
+                ToolbarItemGroup {
+
                     Button {
                         model.center()
                     } label: {
                         Image(systemName: "location")
                     }
+
                 }
-                ToolbarItem {
+
+                ToolbarItemGroup {
                     Button {
                         sheet = .newPlace
                     } label: {
