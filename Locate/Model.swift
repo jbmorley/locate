@@ -9,7 +9,21 @@ class Model: NSObject, ObservableObject {
     @MainActor @Published var places: [Place] = []
     @MainActor @Published var locations: [Location] = []  // TODO: Read only?
     @MainActor @Published var isUpdating: Bool = false
-    @MainActor @Published var selectedUrl: URL?
+    @MainActor var centeredLocation: CLLocationCoordinate2D? = nil
+
+    @MainActor var selectedPlace: Place? {
+        guard selection.count == 1 else {
+            return nil
+        }
+        return places.first { $0.id == selection.first }
+    }
+
+    @MainActor var selectedLocation: Location? {
+        guard selection.count == 1 else {
+            return nil
+        }
+        return locations.first { $0.id == selection.first }
+    }
 
     private var userLocation: CLLocationCoordinate2D? = nil
 
@@ -22,10 +36,6 @@ class Model: NSObject, ObservableObject {
 
     // TODO: Introduce a second view model for the map selection
     // TODO: Better default location
-    @MainActor var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.334_900,
-                                                                              longitude: -122.009_020),
-                                               latitudinalMeters: 10000,
-                                               longitudinalMeters: 10000)
 
     @MainActor @Published var selection: Set<Place.ID> = []
 
@@ -96,7 +106,7 @@ class Model: NSObject, ObservableObject {
             return
         }
         self.objectWillChange.send()
-        region.center = userLocation
+        self.centeredLocation = userLocation
     }
 
     @Sendable func save() async {
@@ -108,28 +118,6 @@ class Model: NSObject, ObservableObject {
             } catch {
                 // TODO: Model error in meaningful way
                 print("Failed to save with error \(error).")
-            }
-        }
-    }
-
-    @Sendable func observeSelection() async {
-        for await selection in $selection.values {
-            guard selection.count == 1, let link = await places.first(where: { $0.id == selection.first })?.link else {
-                print("No selection")
-                await MainActor.run {
-                    selectedUrl = nil
-                }
-                continue
-            }
-            guard let url = URL(string: link) else {
-                print("Selection contains invalid URL")
-                await MainActor.run {
-                    selectedUrl = nil
-                }
-                continue
-            }
-            await MainActor.run {
-                selectedUrl = url
             }
         }
     }
@@ -166,24 +154,17 @@ class Model: NSObject, ObservableObject {
         }
     }
 
-    //    @Sendable func run() async {
-    //        _ = await [geocode(), selection()]
-    //    }
+//    @Sendable func run() async {
+//        _ = await [geocode(), selection()]
+//    }
 
 }
 
 extension Model: CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        print("location status -> \(status)")
         if status == .authorizedAlways {
-//            if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {
-//                if CLLocationManager.isRangingAvailable() {
-//                    // do stuff
-//                }
-//            }
             manager.startUpdatingLocation()
-            print("AUTHORIZED")
         }
     }
 
@@ -195,9 +176,5 @@ extension Model: CLLocationManagerDelegate {
             self.userLocation = location.coordinate
         }
     }
-
-//    deinit {
-//        locationManager?.stopUpdatingLocation()
-//    }
 
 }

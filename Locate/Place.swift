@@ -6,6 +6,10 @@ struct Place: Identifiable, Hashable, Codable {
         return lhs.id == rhs.id
     }
 
+    var url: URL? {
+        return URL(string: link)
+    }
+
     let id: UUID
     let address: String
     let link: String

@@ -17,26 +17,23 @@ struct ContentView: View {
     var body: some View {
         GeometryReader { geometry in
             HStack(spacing: 0) {
-                PlaceList(model: model)
-                    .frame(width: geometry.size.width * 0.2)
+                VStack(spacing: 0) {
+                    PlaceList(model: model)
+                        .frame(width: geometry.size.width * 0.2)
+                    if model.isUpdating {
+                        Text("Updating Locations...")
+                        .padding()
+                    }
+                }
                 HStack {
                     MapView(model: model)
-                    if let url = model.selectedUrl {
+                    if let url = model.selectedPlace?.url {
                         WebView(url: url)
                     }
                 }
             }
             .toolbar {
 
-                if model.isUpdating {
-                    ToolbarItem(placement: .navigation) {
-                        ProgressView()
-                            .progressViewStyle(.circular)
-                            .controlSize(.small)
-                    }
-                }
-
-                // TODO: Separate these actions out into groups.
                 ToolbarItemGroup {
 
                     Button {
@@ -47,7 +44,6 @@ struct ContentView: View {
                     .help("Open in Safari")
                     .keyboardShortcut(.return, modifiers: [])
                     .disabled(model.selection.isEmpty)
-
 
                     Button {
                         model.delete(ids: model.selection)
@@ -94,7 +90,6 @@ struct ContentView: View {
         }
         .task(model.geocode)
         .task(model.save)
-        .task(model.observeSelection)
     }
 
 }

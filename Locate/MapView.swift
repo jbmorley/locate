@@ -10,8 +10,13 @@ struct MapView: View {
 
     @ObservedObject var model: Model
 
+    @State var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.334_900,
+                                                                          longitude: -122.009_020),
+                                           latitudinalMeters: 10000,
+                                           longitudinalMeters: 10000)
+
     var body: some View {
-        Map(coordinateRegion: $model.region, showsUserLocation: true, annotationItems: model.locations) { location in
+        Map(coordinateRegion: $region, showsUserLocation: true, annotationItems: model.locations) { location in
             MapAnnotation(coordinate: location.coordinate) {
                 Image(systemName: "mappin.circle.fill")
                     .resizable()
@@ -28,6 +33,22 @@ struct MapView: View {
                     .simultaneousGesture(TapGesture().onEnded {
                         model.selection = [location.id]
                     })
+            }
+        }
+        .onChange(of: model.selectedLocation) { selectedLocation in
+            guard let selectedLocation = selectedLocation else {
+                return
+            }
+            withAnimation {
+                region.center = selectedLocation.coordinate
+            }
+        }
+        .onChange(of: model.centeredLocation) { centeredLocation in
+            guard let centeredLocation = centeredLocation else {
+                return
+            }
+            withAnimation {
+                region.center = centeredLocation
             }
         }
     }

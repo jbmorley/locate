@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D802855028958DDB00565FA3 /* CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = D802854F28958DDB00565FA3 /* CLLocationCoordinate2D.swift */; };
 		D8202D242893D2C400C0D319 /* PlaceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8202D232893D2C400C0D319 /* PlaceList.swift */; };
 		D8202D262893D32C00C0D319 /* NewPlaceForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8202D252893D32C00C0D319 /* NewPlaceForm.swift */; };
 		D8202D282893D36900C0D319 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8202D272893D36900C0D319 /* Model.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D802854F28958DDB00565FA3 /* CLLocationCoordinate2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2D.swift; sourceTree = "<group>"; };
 		D8202D232893D2C400C0D319 /* PlaceList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceList.swift; sourceTree = "<group>"; };
 		D8202D252893D32C00C0D319 /* NewPlaceForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlaceForm.swift; sourceTree = "<group>"; };
 		D8202D272893D36900C0D319 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -87,6 +89,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D802854E28958DD000565FA3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D802854F28958DDB00565FA3 /* CLLocationCoordinate2D.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		D85BE7EF2891354F0099C2FE = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +121,7 @@
 		D85BE7FA2891354F0099C2FE /* Locate */ = {
 			isa = PBXGroup;
 			children = (
+				D802854E28958DD000565FA3 /* Extensions */,
 				D85BE804289135550099C2FE /* Locate.entitlements */,
 				D85BE7FD2891354F0099C2FE /* ContentView.swift */,
 				D85BE7FB2891354F0099C2FE /* LocateApp.swift */,
@@ -285,6 +296,7 @@
 				D8202D282893D36900C0D319 /* Model.swift in Sources */,
 				D8202D2A2893D42500C0D319 /* MapView.swift in Sources */,
 				D8202D262893D32C00C0D319 /* NewPlaceForm.swift in Sources */,
+				D802855028958DDB00565FA3 /* CLLocationCoordinate2D.swift in Sources */,
 				D8202D2E2893D4B100C0D319 /* Place.swift in Sources */,
 				D8202D242893D2C400C0D319 /* PlaceList.swift in Sources */,
 				D85BE7FE2891354F0099C2FE /* ContentView.swift in Sources */,
