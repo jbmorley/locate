@@ -82,7 +82,7 @@ class Model: NSObject, ObservableObject {
             let encoder = JSONEncoder()
             do {
                 let data = try encoder.encode(places)
-                try data.write(to: storeUrl)
+                try data.write(to: storeUrl, options: .atomic)
             } catch {
                 // TODO: Model error in meaningful way
                 print("Failed to save with error \(error).")
