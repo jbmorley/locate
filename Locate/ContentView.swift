@@ -25,7 +25,7 @@ struct ContentView: View {
                         .padding()
                     }
                 }
-                HStack {
+                HStack(spacing: 0) {
                     MapView(model: model)
                     if let url = model.selectedPlace?.url {
                         WebView(url: url)
