@@ -76,9 +76,6 @@ struct ContentView: View {
         }
         .task(model.geocode)
         .task(model.save)
-        .onAppear {
-            model.start()
-        }
     }
 
 }

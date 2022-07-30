@@ -38,14 +38,14 @@ class Model: NSObject, ObservableObject {
         } catch {
             print("Failed to load places with error \(error).")
         }
+
+        self.requestAuthorization()
     }
 
-    @MainActor func start() {
-        // TODO: Rename once this works.
+    @MainActor private func requestAuthorization() {
         locationManager = CLLocationManager()
         locationManager?.delegate = self
         locationManager?.requestAlwaysAuthorization()
-        print(CLLocationManager.authorizationStatus())
     }
 
     @MainActor func open(ids: Set<Place.ID>) {
