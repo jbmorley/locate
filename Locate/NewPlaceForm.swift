@@ -54,6 +54,7 @@ struct NewPlaceForm: View {
                 Button("Cancel", role: .cancel) {
                     presentationMode.wrappedValue.dismiss()
                 }
+                .keyboardShortcut(.escape, modifiers: [])
                 Button("Add") {
                     placeFormModel.submit()
                     presentationMode.wrappedValue.dismiss()
