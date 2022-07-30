@@ -11,7 +11,7 @@ struct ContentView: View {
         case newPlace
     }
 
-    @StateObject var model = Model()
+    @ObservedObject var model: Model
     @State var sheet: Sheet? = nil
 
     var body: some View {
@@ -88,6 +88,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(model: Model())
     }
 }

@@ -71,6 +71,20 @@ class Model: NSObject, ObservableObject {
         selection = [place.id]
     }
 
+    @MainActor func copy(ids: Set<Place.ID>) {
+        let urls = selection.compactMap { id in
+            return places.first { $0.id == id }
+        }.compactMap {
+            return URL(string: $0.link)
+        }.map {
+            return $0 as NSURL
+        }
+        print("copy: \(urls)")
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.writeObjects(urls)
+        NSPasteboard.general.writeObjects(urls.compactMap({ $0.absoluteString as? NSString }))
+    }
+
     @MainActor func center() {
         guard let userLocation = userLocation else {
             return
@@ -94,6 +108,7 @@ class Model: NSObject, ObservableObject {
 
     @Sendable func observeSelection() async {
         for await selection in $selection.values {
+            print("selection -> \(selection)")
             guard let link = await places.first(where: { $0.id == selection.first })?.link else {
                 print("No selection")
                 await MainActor.run {

@@ -27,6 +27,10 @@ struct PlaceList: View {
                 model.open(ids: selection)
             }
             Divider()
+            Button("Copy") {
+                model.copy(ids: selection)
+            }
+            Divider()
             Button("Delete", role: .destructive) {
                 model.delete(ids: selection)
             }
