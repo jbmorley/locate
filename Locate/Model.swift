@@ -9,6 +9,8 @@ class Model: NSObject, ObservableObject {
     @MainActor @Published var places: [Place] = []
     @MainActor @Published var locations: [Location] = []  // TODO: Read only?
     @MainActor @Published var isUpdating: Bool = false
+    @MainActor @Published var selectedUrl: URL?
+
     private var userLocation: CLLocationCoordinate2D? = nil
 
     private var locationManager: CLLocationManager?
@@ -86,6 +88,28 @@ class Model: NSObject, ObservableObject {
             } catch {
                 // TODO: Model error in meaningful way
                 print("Failed to save with error \(error).")
+            }
+        }
+    }
+
+    @Sendable func observeSelection() async {
+        for await selection in $selection.values {
+            guard let link = await places.first(where: { $0.id == selection.first })?.link else {
+                print("No selection")
+                await MainActor.run {
+                    selectedUrl = nil
+                }
+                continue
+            }
+            guard let url = URL(string: link) else {
+                print("Selection contains invalid URL")
+                await MainActor.run {
+                    selectedUrl = nil
+                }
+                continue
+            }
+            await MainActor.run {
+                selectedUrl = url
             }
         }
     }

@@ -20,6 +20,7 @@
 		D85BE80E289135550099C2FE /* LocateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85BE80D289135550099C2FE /* LocateTests.swift */; };
 		D85BE818289135550099C2FE /* LocateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85BE817289135550099C2FE /* LocateUITests.swift */; };
 		D85BE81A289135550099C2FE /* LocateUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85BE819289135550099C2FE /* LocateUITestsLaunchTests.swift */; };
+		D8A154BC2895534C00E1E037 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A154BB2895534C00E1E037 /* WebView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		D85BE813289135550099C2FE /* LocateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocateUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D85BE817289135550099C2FE /* LocateUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocateUITests.swift; sourceTree = "<group>"; };
 		D85BE819289135550099C2FE /* LocateUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocateUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D8A154BB2895534C00E1E037 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				D8202D252893D32C00C0D319 /* NewPlaceForm.swift */,
 				D8202D2D2893D4B100C0D319 /* Place.swift */,
 				D8202D232893D2C400C0D319 /* PlaceList.swift */,
+				D8A154BB2895534C00E1E037 /* WebView.swift */,
 				D85BE7FF289135550099C2FE /* Assets.xcassets */,
 				D85BE801289135550099C2FE /* Preview Content */,
 			);
@@ -285,6 +288,7 @@
 				D8202D2E2893D4B100C0D319 /* Place.swift in Sources */,
 				D8202D242893D2C400C0D319 /* PlaceList.swift in Sources */,
 				D85BE7FE2891354F0099C2FE /* ContentView.swift in Sources */,
+				D8A154BC2895534C00E1E037 /* WebView.swift in Sources */,
 				D85BE7FC2891354F0099C2FE /* LocateApp.swift in Sources */,
 				D8202D2C2893D45800C0D319 /* Location.swift in Sources */,
 			);

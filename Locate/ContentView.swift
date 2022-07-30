@@ -18,8 +18,13 @@ struct ContentView: View {
         GeometryReader { geometry in
             HStack(spacing: 0) {
                 PlaceList(model: model)
-                    .frame(width: geometry.size.width * 0.3)
-                MapView(model: model)
+                    .frame(width: geometry.size.width * 0.2)
+                HStack {
+                    MapView(model: model)
+                    if let url = model.selectedUrl {
+                        WebView(url: url)
+                    }
+                }
             }
             .toolbar {
 
@@ -76,6 +81,7 @@ struct ContentView: View {
         }
         .task(model.geocode)
         .task(model.save)
+        .task(model.observeSelection)
     }
 
 }
