@@ -34,6 +34,11 @@ struct NewPlaceForm: View {
         _placeFormModel = StateObject(wrappedValue: NewPlaceFormModel(model: model))
     }
 
+    func submit() {
+        placeFormModel.submit()
+        presentationMode.wrappedValue.dismiss()
+    }
+
     var body: some View {
         VStack {
             Form {
@@ -46,19 +51,14 @@ struct NewPlaceForm: View {
                         .frame(minWidth: LayoutMetrics.minimumTextFieldWidth)
                 }
             }
-            .onSubmit {
-                placeFormModel.submit()
-            }
+            .onSubmit(submit)
             HStack {
                 Spacer()
                 Button("Cancel", role: .cancel) {
                     presentationMode.wrappedValue.dismiss()
                 }
                 .keyboardShortcut(.cancelAction)
-                Button("Add") {
-                    placeFormModel.submit()
-                    presentationMode.wrappedValue.dismiss()
-                }
+                Button("Add", action: submit)
                 .buttonStyle(.borderedProminent)
             }
         }
