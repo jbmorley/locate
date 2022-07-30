@@ -63,6 +63,7 @@ class Model: NSObject, ObservableObject {
     }
 
     @MainActor func delete(ids: Set<Place.ID>) {
+        selection = []
         places.removeAll { ids.contains($0.id) }
     }
 
@@ -108,8 +109,7 @@ class Model: NSObject, ObservableObject {
 
     @Sendable func observeSelection() async {
         for await selection in $selection.values {
-            print("selection -> \(selection)")
-            guard let link = await places.first(where: { $0.id == selection.first })?.link else {
+            guard selection.count == 1, let link = await places.first(where: { $0.id == selection.first })?.link else {
                 print("No selection")
                 await MainActor.run {
                     selectedUrl = nil
