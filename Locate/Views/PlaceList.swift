@@ -8,6 +8,7 @@ struct TagList: View {
         HStack {
             ForEach(items) { item in
                 Text(item)
+                    .font(.footnote)
                     .padding([.top, .bottom], 4)
                     .padding([.leading, .trailing], 8)
                     .background(Color.gray.opacity(0.3))
