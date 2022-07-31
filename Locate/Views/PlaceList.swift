@@ -1,5 +1,23 @@
 import SwiftUI
 
+struct TagList: View {
+
+    var items: [String]
+
+    var body: some View {
+        HStack {
+            ForEach(items) { item in
+                Text(item)
+                    .padding([.top, .bottom], 4)
+                    .padding([.leading, .trailing], 8)
+                    .background(Color.gray.opacity(0.3))
+                    .clipShape(Capsule())
+            }
+        }
+    }
+
+}
+
 struct PlaceList: View {
 
     @ObservedObject var model: Model
@@ -14,9 +32,12 @@ struct PlaceList: View {
             ForEach(places) { place in
                 VStack(alignment: .leading) {
                     Text(place.address)
-                    if !place.link  .isEmpty {
-                        Text(place.link)
-                            .foregroundColor(.secondary)
+//                    if !place.link.isEmpty {
+//                        Text(place.link)
+//                            .foregroundColor(.secondary)
+//                    }
+                    if let tags = place.tags, !tags.isEmpty {
+                        TagList(items: tags)
                     }
                 }
                 .lineLimit(1)

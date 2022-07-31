@@ -13,6 +13,7 @@ struct Place: Identifiable, Hashable, Codable {
     let id: UUID
     let address: String
     let link: String
+    let tags: [String]?
 
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)

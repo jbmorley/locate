@@ -77,8 +77,19 @@ class Model: NSObject, ObservableObject {
         places.removeAll { ids.contains($0.id) }
     }
 
-    @MainActor func add(place: Place) {
-        places.append(place)
+//    @MainActor func add(place: Place) {
+//        places.append(place)
+//        selection = [place.id]
+//    }
+
+    // TODO: This should raise an error if there's no entry to replace.
+    @MainActor func update(place: Place) {
+        guard let index = places.firstIndex(where: { $0.id == place.id }) else {
+            places.append(place)
+            selection = [place.id]
+            return
+        }
+        places[index] = place
         selection = [place.id]
     }
 

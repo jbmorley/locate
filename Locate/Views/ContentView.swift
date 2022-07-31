@@ -6,9 +6,20 @@ import SwiftUI
 
 struct ContentView: View {
 
+    // TODO: Push this down into the model?
     enum Sheet: Identifiable {
-        var id: Self { self }
+        
+        var id: String {
+            switch self {
+            case .newPlace:
+                return "new-place"
+            case .editPlace(let place):
+                return "edit-place-\(place.id)"
+            }
+        }
+
         case newPlace
+        case editPlace(Place)
     }
 
     @ObservedObject var model: Model
@@ -32,10 +43,9 @@ struct ContentView: View {
                     }
                 }
             }
-            .toolbar {
+            .toolbar(id: "main") {
 
-                ToolbarItemGroup {
-
+                ToolbarItem(id: "open") {
                     Button {
                         model.open(ids: model.selection)
                     } label: {
@@ -44,7 +54,23 @@ struct ContentView: View {
                     .help("Open in Safari")
                     .keyboardShortcut(.return, modifiers: [])
                     .disabled(model.selection.isEmpty)
+                }
 
+                ToolbarItem(id: "edit") {
+                    Button {
+                        guard let selectedPlace = model.selectedPlace else {
+                            return
+                        }
+                        sheet = .editPlace(selectedPlace)
+                    } label: {
+                        Image(systemName: "pencil")
+                    }
+                    .help("Edit")
+                    .keyboardShortcut(.return)
+                    .disabled(model.selection.count != 1)
+                }
+
+                ToolbarItem(id: "delete") {
                     Button {
                         model.delete(ids: model.selection)
                     } label: {
@@ -53,25 +79,24 @@ struct ContentView: View {
                     .help("Delete")
                     .keyboardShortcut(.delete)
                     .disabled(model.selection.isEmpty)
+                }
 
+                ToolbarItem(id: "share") {
                     ShareLink(items: model.selectedUrls()) {
                         Image(systemName: "square.and.arrow.up")
                     }
                     .disabled(model.selection.isEmpty)
-
                 }
 
-                ToolbarItemGroup {
-
+                ToolbarItem(id: "center") {
                     Button {
                         model.center()
                     } label: {
                         Image(systemName: "location")
                     }
-
                 }
 
-                ToolbarItemGroup {
+                ToolbarItem(id: "add") {
                     Button {
                         sheet = .newPlace
                     } label: {
@@ -84,7 +109,9 @@ struct ContentView: View {
             .sheet(item: $sheet) { sheet in
                 switch sheet {
                 case .newPlace:
-                    NewPlaceForm(model: model)
+                    PlaceForm(model: model)
+                case .editPlace(let place):
+                    PlaceForm(model: model, place: place)
                 }
             }
         }

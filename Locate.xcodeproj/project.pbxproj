@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		D802855028958DDB00565FA3 /* CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = D802854F28958DDB00565FA3 /* CLLocationCoordinate2D.swift */; };
 		D8202D242893D2C400C0D319 /* PlaceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8202D232893D2C400C0D319 /* PlaceList.swift */; };
-		D8202D262893D32C00C0D319 /* NewPlaceForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8202D252893D32C00C0D319 /* NewPlaceForm.swift */; };
+		D8202D262893D32C00C0D319 /* PlaceForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8202D252893D32C00C0D319 /* PlaceForm.swift */; };
 		D8202D282893D36900C0D319 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8202D272893D36900C0D319 /* Model.swift */; };
 		D8202D2A2893D42500C0D319 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8202D292893D42500C0D319 /* MapView.swift */; };
 		D8202D2C2893D45800C0D319 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8202D2B2893D45800C0D319 /* Location.swift */; };
@@ -21,6 +21,7 @@
 		D85BE80E289135550099C2FE /* LocateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85BE80D289135550099C2FE /* LocateTests.swift */; };
 		D85BE818289135550099C2FE /* LocateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85BE817289135550099C2FE /* LocateUITests.swift */; };
 		D85BE81A289135550099C2FE /* LocateUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85BE819289135550099C2FE /* LocateUITestsLaunchTests.swift */; };
+		D894DA6D28966A5C00A4C6A0 /* WrappingStack in Frameworks */ = {isa = PBXBuildFile; productRef = D894DA6C28966A5C00A4C6A0 /* WrappingStack */; };
 		D8A154BC2895534C00E1E037 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A154BB2895534C00E1E037 /* WebView.swift */; };
 /* End PBXBuildFile section */
 
@@ -44,7 +45,7 @@
 /* Begin PBXFileReference section */
 		D802854F28958DDB00565FA3 /* CLLocationCoordinate2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2D.swift; sourceTree = "<group>"; };
 		D8202D232893D2C400C0D319 /* PlaceList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceList.swift; sourceTree = "<group>"; };
-		D8202D252893D32C00C0D319 /* NewPlaceForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlaceForm.swift; sourceTree = "<group>"; };
+		D8202D252893D32C00C0D319 /* PlaceForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceForm.swift; sourceTree = "<group>"; };
 		D8202D272893D36900C0D319 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		D8202D292893D42500C0D319 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		D8202D2B2893D45800C0D319 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -69,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D894DA6D28966A5C00A4C6A0 /* WrappingStack in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,19 +123,13 @@
 		D85BE7FA2891354F0099C2FE /* Locate */ = {
 			isa = PBXGroup;
 			children = (
-				D802854E28958DD000565FA3 /* Extensions */,
 				D85BE804289135550099C2FE /* Locate.entitlements */,
-				D85BE7FD2891354F0099C2FE /* ContentView.swift */,
 				D85BE7FB2891354F0099C2FE /* LocateApp.swift */,
-				D8202D2B2893D45800C0D319 /* Location.swift */,
-				D8202D292893D42500C0D319 /* MapView.swift */,
-				D8202D272893D36900C0D319 /* Model.swift */,
-				D8202D252893D32C00C0D319 /* NewPlaceForm.swift */,
-				D8202D2D2893D4B100C0D319 /* Place.swift */,
-				D8202D232893D2C400C0D319 /* PlaceList.swift */,
-				D8A154BB2895534C00E1E037 /* WebView.swift */,
 				D85BE7FF289135550099C2FE /* Assets.xcassets */,
+				D802854E28958DD000565FA3 /* Extensions */,
+				D894DA6A2896594100A4C6A0 /* Model */,
 				D85BE801289135550099C2FE /* Preview Content */,
+				D894DA692896591800A4C6A0 /* Views */,
 			);
 			path = Locate;
 			sourceTree = "<group>";
@@ -163,6 +159,28 @@
 			path = LocateUITests;
 			sourceTree = "<group>";
 		};
+		D894DA692896591800A4C6A0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D85BE7FD2891354F0099C2FE /* ContentView.swift */,
+				D8202D292893D42500C0D319 /* MapView.swift */,
+				D8202D252893D32C00C0D319 /* PlaceForm.swift */,
+				D8202D232893D2C400C0D319 /* PlaceList.swift */,
+				D8A154BB2895534C00E1E037 /* WebView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D894DA6A2896594100A4C6A0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D8202D2B2893D45800C0D319 /* Location.swift */,
+				D8202D272893D36900C0D319 /* Model.swift */,
+				D8202D2D2893D4B100C0D319 /* Place.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -179,6 +197,9 @@
 			dependencies = (
 			);
 			name = Locate;
+			packageProductDependencies = (
+				D894DA6C28966A5C00A4C6A0 /* WrappingStack */,
+			);
 			productName = Geolocate;
 			productReference = D85BE7F82891354F0099C2FE /* Locate.app */;
 			productType = "com.apple.product-type.application";
@@ -251,6 +272,9 @@
 				Base,
 			);
 			mainGroup = D85BE7EF2891354F0099C2FE;
+			packageReferences = (
+				D894DA6B28966A5C00A4C6A0 /* XCRemoteSwiftPackageReference "swiftui-wrapping-stack" */,
+			);
 			productRefGroup = D85BE7F92891354F0099C2FE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -295,7 +319,7 @@
 			files = (
 				D8202D282893D36900C0D319 /* Model.swift in Sources */,
 				D8202D2A2893D42500C0D319 /* MapView.swift in Sources */,
-				D8202D262893D32C00C0D319 /* NewPlaceForm.swift in Sources */,
+				D8202D262893D32C00C0D319 /* PlaceForm.swift in Sources */,
 				D802855028958DDB00565FA3 /* CLLocationCoordinate2D.swift in Sources */,
 				D8202D2E2893D4B100C0D319 /* Place.swift in Sources */,
 				D8202D242893D2C400C0D319 /* PlaceList.swift in Sources */,
@@ -616,6 +640,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D894DA6B28966A5C00A4C6A0 /* XCRemoteSwiftPackageReference "swiftui-wrapping-stack" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/diniska/swiftui-wrapping-stack.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D894DA6C28966A5C00A4C6A0 /* WrappingStack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D894DA6B28966A5C00A4C6A0 /* XCRemoteSwiftPackageReference "swiftui-wrapping-stack" */;
+			productName = WrappingStack;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D85BE7F02891354F0099C2FE /* Project object */;
 }
