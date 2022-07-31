@@ -24,12 +24,7 @@ struct PlaceList: View {
                             } else {
                                 ProgressView()
                             }
-
-//                                .resizable()
-//                                .aspectRatio(contentMode: .fit)
                         })
-//                            .resizable()
-//                            .aspectRatio(contentMode: .fit)
                     }
                     VStack(alignment: .leading) {
                         Text(place.address)
