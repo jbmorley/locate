@@ -32,10 +32,6 @@ struct PlaceList: View {
             ForEach(places) { place in
                 VStack(alignment: .leading) {
                     Text(place.address)
-//                    if !place.link.isEmpty {
-//                        Text(place.link)
-//                            .foregroundColor(.secondary)
-//                    }
                     if let tags = place.tags, !tags.isEmpty {
                         TagList(items: tags)
                     }
