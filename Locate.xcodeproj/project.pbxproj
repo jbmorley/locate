@@ -15,6 +15,8 @@
 		D8202D2A2893D42500C0D319 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8202D292893D42500C0D319 /* MapView.swift */; };
 		D8202D2C2893D45800C0D319 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8202D2B2893D45800C0D319 /* Location.swift */; };
 		D8202D2E2893D4B100C0D319 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8202D2D2893D4B100C0D319 /* Place.swift */; };
+		D82A94FF2896897900085E03 /* StableColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82A94FE2896897900085E03 /* StableColor.swift */; };
+		D82A95032896A05000085E03 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = D82A95022896A05000085E03 /* SwiftSoup */; };
 		D85BE7FC2891354F0099C2FE /* LocateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85BE7FB2891354F0099C2FE /* LocateApp.swift */; };
 		D85BE7FE2891354F0099C2FE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85BE7FD2891354F0099C2FE /* ContentView.swift */; };
 		D85BE800289135550099C2FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D85BE7FF289135550099C2FE /* Assets.xcassets */; };
@@ -53,6 +55,7 @@
 		D8202D2B2893D45800C0D319 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		D8202D2D2893D4B100C0D319 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		D8202D2F2893E2B100C0D319 /* Locate-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Locate-Info.plist"; sourceTree = "<group>"; };
+		D82A94FE2896897900085E03 /* StableColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StableColor.swift; sourceTree = "<group>"; };
 		D85BE7F82891354F0099C2FE /* Locate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Locate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D85BE7FB2891354F0099C2FE /* LocateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocateApp.swift; sourceTree = "<group>"; };
 		D85BE7FD2891354F0099C2FE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -73,6 +76,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D894DA6D28966A5C00A4C6A0 /* WrappingStack in Frameworks */,
+				D82A95032896A05000085E03 /* SwiftSoup in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +103,14 @@
 				D802854F28958DDB00565FA3 /* CLLocationCoordinate2D.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D82A950028969E6D00085E03 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				D82A94FE2896897900085E03 /* StableColor.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		D85BE7EF2891354F0099C2FE = {
@@ -131,6 +143,7 @@
 				D802854E28958DD000565FA3 /* Extensions */,
 				D894DA6A2896594100A4C6A0 /* Model */,
 				D85BE801289135550099C2FE /* Preview Content */,
+				D82A950028969E6D00085E03 /* Utilities */,
 				D894DA692896591800A4C6A0 /* Views */,
 			);
 			path = Locate;
@@ -202,6 +215,7 @@
 			name = Locate;
 			packageProductDependencies = (
 				D894DA6C28966A5C00A4C6A0 /* WrappingStack */,
+				D82A95022896A05000085E03 /* SwiftSoup */,
 			);
 			productName = Geolocate;
 			productReference = D85BE7F82891354F0099C2FE /* Locate.app */;
@@ -277,6 +291,7 @@
 			mainGroup = D85BE7EF2891354F0099C2FE;
 			packageReferences = (
 				D894DA6B28966A5C00A4C6A0 /* XCRemoteSwiftPackageReference "swiftui-wrapping-stack" */,
+				D82A95012896A05000085E03 /* XCRemoteSwiftPackageReference "SwiftSoup" */,
 			);
 			productRefGroup = D85BE7F92891354F0099C2FE /* Products */;
 			projectDirPath = "";
@@ -321,6 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8202D282893D36900C0D319 /* Model.swift in Sources */,
+				D82A94FF2896897900085E03 /* StableColor.swift in Sources */,
 				D8202D2A2893D42500C0D319 /* MapView.swift in Sources */,
 				D8202D262893D32C00C0D319 /* PlaceForm.swift in Sources */,
 				D802855028958DDB00565FA3 /* CLLocationCoordinate2D.swift in Sources */,
@@ -646,6 +662,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D82A95012896A05000085E03 /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scinfu/SwiftSoup.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		D894DA6B28966A5C00A4C6A0 /* XCRemoteSwiftPackageReference "swiftui-wrapping-stack" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/diniska/swiftui-wrapping-stack.git";
@@ -657,6 +681,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D82A95022896A05000085E03 /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D82A95012896A05000085E03 /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			productName = SwiftSoup;
+		};
 		D894DA6C28966A5C00A4C6A0 /* WrappingStack */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D894DA6B28966A5C00A4C6A0 /* XCRemoteSwiftPackageReference "swiftui-wrapping-stack" */;

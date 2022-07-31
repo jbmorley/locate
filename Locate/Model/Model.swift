@@ -2,6 +2,8 @@ import CoreLocation
 import MapKit
 import SwiftUI
 
+import SwiftSoup
+
 class Model: NSObject, ObservableObject {
 
     @Environment(\.openURL) private var openURL
@@ -77,12 +79,6 @@ class Model: NSObject, ObservableObject {
         places.removeAll { ids.contains($0.id) }
     }
 
-//    @MainActor func add(place: Place) {
-//        places.append(place)
-//        selection = [place.id]
-//    }
-
-    // TODO: This should raise an error if there's no entry to replace.
     @MainActor func update(place: Place) {
         guard let index = places.firstIndex(where: { $0.id == place.id }) else {
             places.append(place)
@@ -163,6 +159,33 @@ class Model: NSObject, ObservableObject {
                 isUpdating = false
             }
         }
+    }
+
+    @Sendable func thumbnails() async {
+
+        for await places in $places.values {
+            for place in places {
+                guard let url = place.url else {
+                    continue
+                }
+                print(url)
+                do {
+                    let (data, _) = try await URLSession.shared.data(from: url)
+                    // TODO: Check the response
+                    guard let html = String(data: data, encoding: .utf8) else {
+                        continue
+                    }
+                    let document = try SwiftSoup.parse(html)
+                    let title = try document.select("title")
+                    print(try title.text())
+//                    print(html)
+                } catch {
+                    print("Failed to download URL with error")
+                    continue
+                }
+            }
+        }
+
     }
 
 //    @Sendable func run() async {

@@ -71,18 +71,8 @@ struct PlaceForm: View {
                 }
                 LabeledContent("Tags") {
                     VStack {
-                        HStack {
-                            ForEach(placeFormModel.tags) { tag in
-                                Text(tag)
-                                    .padding(6)
-                                    .background(Color.gray.opacity(0.4))
-                                    .cornerRadius(6)
-                                    .clipShape(Capsule())
-                                    .onTapGesture {
-                                        placeFormModel.tags.removeAll { $0 == tag }
-                                    }
-                            }
-                            Spacer()
+                        TagList(items: placeFormModel.tags) { tag in
+                            placeFormModel.tags.removeAll { $0 == tag }
                         }
                         TextField("", text: $nextTag)
                             .frame(minWidth: 0)
@@ -94,7 +84,6 @@ struct PlaceForm: View {
                                 nextTag = ""
                             }
                             .submitScope(!nextTag.isEmpty)
-                        // TODO: Different submit contexts to allow enter to work
                     }
                 }
             }

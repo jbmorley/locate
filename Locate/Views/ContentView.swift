@@ -117,6 +117,7 @@ struct ContentView: View {
         }
         .task(model.geocode)
         .task(model.save)
+        .task(model.thumbnails)
     }
 
 }
