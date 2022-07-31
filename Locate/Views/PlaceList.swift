@@ -12,13 +12,33 @@ struct PlaceList: View {
     var body: some View {
         List(selection: $model.selection) {
             ForEach(places) { place in
-                VStack(alignment: .leading) {
-                    Text(place.address)
-                    if let tags = place.tags, !tags.isEmpty {
-                        TagList(items: tags)
+                HStack {
+                    if let url = model.images[place.id] {
+                        AsyncImage(url: url, content: { image in
+                            if let image = image.image {
+                                image
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(maxWidth: 100)
+                                    .clipShape(RoundedRectangle(cornerRadius: 6.0))
+                            } else {
+                                ProgressView()
+                            }
+
+//                                .resizable()
+//                                .aspectRatio(contentMode: .fit)
+                        })
+//                            .resizable()
+//                            .aspectRatio(contentMode: .fit)
                     }
+                    VStack(alignment: .leading) {
+                        Text(place.address)
+                        if let tags = place.tags, !tags.isEmpty {
+                            TagList(items: tags)
+                        }
+                    }
+                    .lineLimit(1)
                 }
-                .lineLimit(1)
             }
         }
         .contextMenu(forSelectionType: Place.ID.self) { selection in

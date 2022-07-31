@@ -25,7 +25,6 @@
 		D85BE80E289135550099C2FE /* LocateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85BE80D289135550099C2FE /* LocateTests.swift */; };
 		D85BE818289135550099C2FE /* LocateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85BE817289135550099C2FE /* LocateUITests.swift */; };
 		D85BE81A289135550099C2FE /* LocateUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85BE819289135550099C2FE /* LocateUITestsLaunchTests.swift */; };
-		D894DA6D28966A5C00A4C6A0 /* WrappingStack in Frameworks */ = {isa = PBXBuildFile; productRef = D894DA6C28966A5C00A4C6A0 /* WrappingStack */; };
 		D8A154BC2895534C00E1E037 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A154BB2895534C00E1E037 /* WebView.swift */; };
 /* End PBXBuildFile section */
 
@@ -77,7 +76,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D80CD4CB28971ABB0051B8FC /* HashRainbow in Frameworks */,
-				D894DA6D28966A5C00A4C6A0 /* WrappingStack in Frameworks */,
 				D82A95032896A05000085E03 /* SwiftSoup in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -216,7 +214,6 @@
 			);
 			name = Locate;
 			packageProductDependencies = (
-				D894DA6C28966A5C00A4C6A0 /* WrappingStack */,
 				D82A95022896A05000085E03 /* SwiftSoup */,
 				D80CD4CA28971ABB0051B8FC /* HashRainbow */,
 			);
@@ -293,7 +290,6 @@
 			);
 			mainGroup = D85BE7EF2891354F0099C2FE;
 			packageReferences = (
-				D894DA6B28966A5C00A4C6A0 /* XCRemoteSwiftPackageReference "swiftui-wrapping-stack" */,
 				D82A95012896A05000085E03 /* XCRemoteSwiftPackageReference "SwiftSoup" */,
 				D80CD4C928971ABB0051B8FC /* XCRemoteSwiftPackageReference "HashRainbow" */,
 			);
@@ -682,14 +678,6 @@
 				minimumVersion = 2.0.0;
 			};
 		};
-		D894DA6B28966A5C00A4C6A0 /* XCRemoteSwiftPackageReference "swiftui-wrapping-stack" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/diniska/swiftui-wrapping-stack.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -702,11 +690,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D82A95012896A05000085E03 /* XCRemoteSwiftPackageReference "SwiftSoup" */;
 			productName = SwiftSoup;
-		};
-		D894DA6C28966A5C00A4C6A0 /* WrappingStack */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D894DA6B28966A5C00A4C6A0 /* XCRemoteSwiftPackageReference "swiftui-wrapping-stack" */;
-			productName = WrappingStack;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

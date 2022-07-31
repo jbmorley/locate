@@ -12,6 +12,7 @@ class Model: NSObject, ObservableObject {
     @MainActor @Published var locations: [Location] = []  // TODO: Read only?
     @MainActor @Published var isUpdating: Bool = false
     @MainActor var centeredLocation: CLLocationCoordinate2D? = nil
+    @MainActor @Published var images: [Place.ID:URL] = [:]
 
     @MainActor var selectedPlace: Place? {
         guard selection.count == 1 else {
@@ -176,8 +177,26 @@ class Model: NSObject, ObservableObject {
                         continue
                     }
                     let document = try SwiftSoup.parse(html)
-                    let title = try document.select("title")
-                    print(try title.text())
+                    let meta = try document.getElementsByTag("meta")
+                    for tag in meta {
+                        let property = try tag.attr("property")
+                        if property == "og:image" {
+                            let content = try tag.attr("content")
+                            guard let url = URL(string: content) else {
+                                continue
+                            }
+//                            await images[place.id] = url
+//                            await MainActor.run {
+                            DispatchQueue.main.async {
+                                // TODO: This is ugly.
+                                self.images[place.id] = url
+                            }
+//                                images[place.id] = url
+//                            }
+                            break
+                        }
+                    }
+//                    print(try title.text())
 //                    print(html)
                 } catch {
                     print("Failed to download URL with error")

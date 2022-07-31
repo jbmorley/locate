@@ -30,7 +30,7 @@ struct ContentView: View {
             HStack(spacing: 0) {
                 VStack(spacing: 0) {
                     PlaceList(model: model)
-                        .frame(width: geometry.size.width * 0.2)
+                        .frame(width: geometry.size.width * 0.3)
                     if model.isUpdating {
                         Text("Updating Locations...")
                         .padding()
