@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D802855028958DDB00565FA3 /* CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = D802854F28958DDB00565FA3 /* CLLocationCoordinate2D.swift */; };
+		D808A93D28967F3E00586A2B /* TagList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D808A93C28967F3E00586A2B /* TagList.swift */; };
 		D8202D242893D2C400C0D319 /* PlaceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8202D232893D2C400C0D319 /* PlaceList.swift */; };
 		D8202D262893D32C00C0D319 /* PlaceForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8202D252893D32C00C0D319 /* PlaceForm.swift */; };
 		D8202D282893D36900C0D319 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8202D272893D36900C0D319 /* Model.swift */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		D802854F28958DDB00565FA3 /* CLLocationCoordinate2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2D.swift; sourceTree = "<group>"; };
+		D808A93C28967F3E00586A2B /* TagList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagList.swift; sourceTree = "<group>"; };
 		D8202D232893D2C400C0D319 /* PlaceList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceList.swift; sourceTree = "<group>"; };
 		D8202D252893D32C00C0D319 /* PlaceForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceForm.swift; sourceTree = "<group>"; };
 		D8202D272893D36900C0D319 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				D8202D292893D42500C0D319 /* MapView.swift */,
 				D8202D252893D32C00C0D319 /* PlaceForm.swift */,
 				D8202D232893D2C400C0D319 /* PlaceList.swift */,
+				D808A93C28967F3E00586A2B /* TagList.swift */,
 				D8A154BB2895534C00E1E037 /* WebView.swift */,
 			);
 			path = Views;
@@ -323,6 +326,7 @@
 				D802855028958DDB00565FA3 /* CLLocationCoordinate2D.swift in Sources */,
 				D8202D2E2893D4B100C0D319 /* Place.swift in Sources */,
 				D8202D242893D2C400C0D319 /* PlaceList.swift in Sources */,
+				D808A93D28967F3E00586A2B /* TagList.swift in Sources */,
 				D85BE7FE2891354F0099C2FE /* ContentView.swift in Sources */,
 				D8A154BC2895534C00E1E037 /* WebView.swift in Sources */,
 				D85BE7FC2891354F0099C2FE /* LocateApp.swift in Sources */,
