@@ -12,7 +12,7 @@ class Model: NSObject, ObservableObject {
     @MainActor @Published var locations: [Location] = []  // TODO: Read only?
     @MainActor @Published var isUpdating: Bool = false
     @MainActor var centeredLocation: CLLocationCoordinate2D? = nil
-    @MainActor @Published var images: [Place.ID:URL] = [:]
+    @MainActor @Published var images: [Place.ID:NSImage] = [:]
 
     @MainActor var selectedPlace: Place? {
         guard selection.count == 1 else {
@@ -185,11 +185,13 @@ class Model: NSObject, ObservableObject {
                             guard let url = URL(string: content) else {
                                 continue
                             }
+                            let (data, _) = try await URLSession.shared.data(from: url)
+                            let image = NSImage(data: data)
 //                            await images[place.id] = url
 //                            await MainActor.run {
                             DispatchQueue.main.async {
                                 // TODO: This is ugly.
-                                self.images[place.id] = url
+                                self.images[place.id] = image
                             }
 //                                images[place.id] = url
 //                            }

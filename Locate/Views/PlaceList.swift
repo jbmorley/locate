@@ -13,18 +13,12 @@ struct PlaceList: View {
         List(selection: $model.selection) {
             ForEach(places) { place in
                 HStack {
-                    if let url = model.images[place.id] {
-                        AsyncImage(url: url, content: { image in
-                            if let image = image.image {
-                                image
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(maxWidth: 100)
-                                    .clipShape(RoundedRectangle(cornerRadius: 6.0))
-                            } else {
-                                ProgressView()
-                            }
-                        })
+                    if let image = model.images[place.id] {
+                        Image(nsImage: image)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(maxWidth: 100)
+                            .clipShape(RoundedRectangle(cornerRadius: 6.0))
                     }
                     VStack(alignment: .leading) {
                         Text(place.address)

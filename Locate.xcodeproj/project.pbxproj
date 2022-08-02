@@ -16,7 +16,7 @@
 		D8202D2A2893D42500C0D319 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8202D292893D42500C0D319 /* MapView.swift */; };
 		D8202D2C2893D45800C0D319 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8202D2B2893D45800C0D319 /* Location.swift */; };
 		D8202D2E2893D4B100C0D319 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8202D2D2893D4B100C0D319 /* Place.swift */; };
-		D82A94FF2896897900085E03 /* StableColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82A94FE2896897900085E03 /* StableColor.swift */; };
+		D82A94FF2896897900085E03 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82A94FE2896897900085E03 /* String.swift */; };
 		D82A95032896A05000085E03 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = D82A95022896A05000085E03 /* SwiftSoup */; };
 		D85BE7FC2891354F0099C2FE /* LocateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85BE7FB2891354F0099C2FE /* LocateApp.swift */; };
 		D85BE7FE2891354F0099C2FE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85BE7FD2891354F0099C2FE /* ContentView.swift */; };
@@ -55,7 +55,7 @@
 		D8202D2B2893D45800C0D319 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		D8202D2D2893D4B100C0D319 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		D8202D2F2893E2B100C0D319 /* Locate-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Locate-Info.plist"; sourceTree = "<group>"; };
-		D82A94FE2896897900085E03 /* StableColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StableColor.swift; sourceTree = "<group>"; };
+		D82A94FE2896897900085E03 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		D85BE7F82891354F0099C2FE /* Locate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Locate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D85BE7FB2891354F0099C2FE /* LocateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocateApp.swift; sourceTree = "<group>"; };
 		D85BE7FD2891354F0099C2FE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -101,16 +101,9 @@
 			isa = PBXGroup;
 			children = (
 				D802854F28958DDB00565FA3 /* CLLocationCoordinate2D.swift */,
+				D82A94FE2896897900085E03 /* String.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		D82A950028969E6D00085E03 /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-				D82A94FE2896897900085E03 /* StableColor.swift */,
-			);
-			path = Utilities;
 			sourceTree = "<group>";
 		};
 		D85BE7EF2891354F0099C2FE = {
@@ -143,7 +136,6 @@
 				D802854E28958DD000565FA3 /* Extensions */,
 				D894DA6A2896594100A4C6A0 /* Model */,
 				D85BE801289135550099C2FE /* Preview Content */,
-				D82A950028969E6D00085E03 /* Utilities */,
 				D894DA692896591800A4C6A0 /* Views */,
 			);
 			path = Locate;
@@ -336,7 +328,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8202D282893D36900C0D319 /* Model.swift in Sources */,
-				D82A94FF2896897900085E03 /* StableColor.swift in Sources */,
+				D82A94FF2896897900085E03 /* String.swift in Sources */,
 				D8202D2A2893D42500C0D319 /* MapView.swift in Sources */,
 				D8202D262893D32C00C0D319 /* PlaceForm.swift in Sources */,
 				D802855028958DDB00565FA3 /* CLLocationCoordinate2D.swift in Sources */,
@@ -509,6 +501,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Locate-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Locate;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need location to do things.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need location to do things.";
@@ -537,6 +531,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Locate-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Locate;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need location to do things.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need location to do things.";

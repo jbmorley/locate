@@ -1,7 +1,5 @@
 import SwiftUI
 
-import WrappingStack
-
 class PlaceFormModel: ObservableObject {
 
     @MainActor @Published var id = UUID()
