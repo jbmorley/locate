@@ -1,3 +1,4 @@
+import Combine
 import CoreLocation
 import MapKit
 import SwiftUI
@@ -6,6 +7,8 @@ import SwiftSoup
 
 class Model: NSObject, ObservableObject {
 
+    var cancellables: Set<AnyCancellable> = []
+
     @Environment(\.openURL) private var openURL
 
     @MainActor @Published var places: [Place] = []
@@ -13,6 +16,15 @@ class Model: NSObject, ObservableObject {
     @MainActor @Published var isUpdating: Bool = false
     @MainActor var centeredLocation: CLLocationCoordinate2D? = nil
     @MainActor @Published var images: [Place.ID:NSImage] = [:]
+
+    // Derived.
+    @MainActor @Published var tags: Set<String> = []
+    @MainActor @Published var filteredPlaces: [Place] = []
+
+    // Search.
+    @MainActor @Published var filter: String = ""
+    @MainActor @Published var filterTokens: [String] = []
+    @MainActor @Published var suggestedTokens: [String] = []
 
     @MainActor var selectedPlace: Place? {
         guard selection.count == 1 else {
@@ -187,19 +199,13 @@ class Model: NSObject, ObservableObject {
                             }
                             let (data, _) = try await URLSession.shared.data(from: url)
                             let image = NSImage(data: data)
-//                            await images[place.id] = url
-//                            await MainActor.run {
                             DispatchQueue.main.async {
                                 // TODO: This is ugly.
                                 self.images[place.id] = image
                             }
-//                                images[place.id] = url
-//                            }
                             break
                         }
                     }
-//                    print(try title.text())
-//                    print(html)
                 } catch {
                     print("Failed to download URL with error")
                     continue
@@ -207,6 +213,58 @@ class Model: NSObject, ObservableObject {
             }
         }
 
+    }
+
+    @Sendable func collectTags() async {
+        for await places in $places.values {
+            let tags = Set(places.map { $0.tags ?? [] }.flatMap { $0 })
+            await MainActor.run {
+                self.tags = tags
+            }
+        }
+    }
+
+    @MainActor func start() {
+
+        // Update the suggested tokens whenever the filter or places change.
+        $filter
+            .combineLatest($tags)
+            .compactMap { (filter, tags) in
+                guard !filter.isEmpty else {
+                    return []
+                }
+                return Array(tags.filter { $0.starts(with: filter) })
+            }
+            .receive(on: DispatchQueue.main)  // TODO: Express as MainActor?
+            .sink { suggestedTokens in
+                self.suggestedTokens = suggestedTokens
+            }
+            .store(in: &cancellables)
+
+
+        // Update the filtered places whenever the filter, tokens, or places change.
+        $filter
+            .combineLatest($filterTokens)
+            .combineLatest($places)
+            .compactMap { (arg0, places) in
+                let (filter, tokens) = arg0
+                let tokenSet = Set(tokens)
+                let places = places.filter { place in
+                    guard !filter.isEmpty || !tokens.isEmpty else {
+                        return true
+                    }
+                    let placeTags = Set(place.tags ?? [])
+                    let matchesTags = !tokenSet.intersection(placeTags).isEmpty
+                    let matchesFilter = !filter.isEmpty && place.address.localizedCaseInsensitiveContains(filter)
+                    return matchesTags || matchesFilter
+                }
+                return places
+            }
+            .receive(on: DispatchQueue.main)  // TODO: Express as MainActor?
+            .sink { places in
+                self.filteredPlaces = places
+            }
+            .store(in: &cancellables)
     }
 
 //    @Sendable func run() async {

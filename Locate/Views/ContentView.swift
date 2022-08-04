@@ -118,6 +118,10 @@ struct ContentView: View {
         .task(model.geocode)
         .task(model.save)
         .task(model.thumbnails)
+        .task(model.collectTags)
+        .onAppear {
+            model.start()
+        }
     }
 
 }

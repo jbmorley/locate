@@ -6,7 +6,7 @@ struct PlaceList: View {
 
     // TODO: Push this into the model
     var places: [Place] {
-        return model.places.sorted { $0.address.localizedCompare($1.address) == .orderedAscending }
+        return model.filteredPlaces.sorted { $0.address.localizedCompare($1.address) == .orderedAscending }
     }
 
     var body: some View {
@@ -42,6 +42,11 @@ struct PlaceList: View {
             Button("Delete", role: .destructive) {
                 model.delete(ids: selection)
             }
+        }
+        .searchable(text: $model.filter,
+                    tokens: $model.filterTokens,
+                    suggestedTokens: $model.suggestedTokens) { token in
+            Text(token)
         }
     }
 
