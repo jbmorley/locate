@@ -23,7 +23,7 @@ struct PlaceList: View {
                     VStack(alignment: .leading) {
                         Text(place.address)
                         if let tags = place.tags, !tags.isEmpty {
-                            TagList(items: tags)
+                            TagList(items: Set(tags))
                         }
                     }
                     .lineLimit(1)

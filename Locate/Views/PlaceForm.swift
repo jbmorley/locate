@@ -6,9 +6,7 @@ class PlaceFormModel: ObservableObject {
     @MainActor @Published var address = ""
     @MainActor @Published var link = ""
     @MainActor @Published var isUpdating = false
-
-    // TODO: This should be a set.
-    @MainActor @Published var tags: [String] = []
+    @MainActor @Published var tags: Set<String> = []
 
     private var model: Model
 
@@ -18,18 +16,24 @@ class PlaceFormModel: ObservableObject {
             id =  place.id
             address = place.address
             link = place.link
-            tags = place.tags ?? []
+            tags = Set(place.tags ?? [])
         }
     }
 
     @MainActor func submit() {
-        model.update(place: Place(id: id, address: address, link: link, tags: tags))
+        model.update(place: Place(id: id, address: address, link: link, tags: Array(tags)))
     }
 
     // TODO: Debounce the changes and guard against identical URLs
     @Sendable func fetchTitles() async {
         for await link in $link.values {
             guard let url = URL(string: link) else {
+                continue
+            }
+            let addressIsEmpty = await MainActor.run {
+                return address.isEmpty
+            }
+            guard addressIsEmpty else {
                 continue
             }
             await MainActor.run {
@@ -89,9 +93,7 @@ struct PlaceForm: View {
                 }
                 LabeledContent("Tags") {
                     VStack {
-                        TagList(items: placeFormModel.tags) { tag in
-                            placeFormModel.tags.removeAll { $0 == tag }
-                        }
+                        TagList(items: $placeFormModel.tags)
                         TextField("", text: $nextTag)
                             .lineLimit(1)
                             .frame(minWidth: 0)
@@ -99,7 +101,7 @@ struct PlaceForm: View {
                                 guard !nextTag.isEmpty else {
                                     return
                                 }
-                                placeFormModel.tags.append(nextTag)
+                                placeFormModel.tags.insert(nextTag)
                                 nextTag = ""
                             }
                             .submitScope(!nextTag.isEmpty)
