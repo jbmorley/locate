@@ -5,6 +5,7 @@ class PlaceFormModel: ObservableObject {
     @MainActor @Published var id = UUID()
     @MainActor @Published var address = ""
     @MainActor @Published var link = ""
+    @MainActor @Published var isUpdating = false
 
     // TODO: This should be a set.
     @MainActor @Published var tags: [String] = []
@@ -23,9 +24,26 @@ class PlaceFormModel: ObservableObject {
 
     @MainActor func submit() {
         model.update(place: Place(id: id, address: address, link: link, tags: tags))
-        address = ""
-        link = ""
-        tags = []
+    }
+
+    // TODO: Debounce the changes and guard against identical URLs
+    @Sendable func fetchTitles() async {
+        for await link in $link.values {
+            guard let url = URL(string: link) else {
+                continue
+            }
+            await MainActor.run {
+                isUpdating = true
+            }
+            let title = await Fetcher.title(for: url)
+            await MainActor.run {
+                isUpdating = false
+                guard let title = title, address.isEmpty else {
+                    return
+                }
+                address = title
+            }
+        }
     }
 
 }
@@ -59,12 +77,14 @@ struct PlaceForm: View {
     var body: some View {
         VStack {
             Form {
-                LabeledContent("Address") {
-                    TextField("", text: $placeFormModel.address)
-                        .frame(minWidth: LayoutMetrics.minimumTextFieldWidth)
-                }
                 LabeledContent("Link") {
                     TextField("", text: $placeFormModel.link)
+                        .lineLimit(1)
+                        .frame(minWidth: LayoutMetrics.minimumTextFieldWidth)
+                }
+                LabeledContent("Address") {
+                    TextField("", text: $placeFormModel.address)
+                        .lineLimit(1)
                         .frame(minWidth: LayoutMetrics.minimumTextFieldWidth)
                 }
                 LabeledContent("Tags") {
@@ -73,6 +93,7 @@ struct PlaceForm: View {
                             placeFormModel.tags.removeAll { $0 == tag }
                         }
                         TextField("", text: $nextTag)
+                            .lineLimit(1)
                             .frame(minWidth: 0)
                             .onSubmit {
                                 guard !nextTag.isEmpty else {
@@ -87,6 +108,10 @@ struct PlaceForm: View {
             }
             .onSubmit(submit)
             HStack {
+                if placeFormModel.isUpdating {
+                    ProgressView()
+                        .controlSize(.small)
+                }
                 Spacer()
                 Button("Cancel", role: .cancel) {
                     presentationMode.wrappedValue.dismiss()
@@ -97,6 +122,7 @@ struct PlaceForm: View {
             }
         }
         .padding()
+        .task(placeFormModel.fetchTitles)
     }
 
 }

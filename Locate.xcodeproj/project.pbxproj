@@ -18,6 +18,7 @@
 		D8202D2E2893D4B100C0D319 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8202D2D2893D4B100C0D319 /* Place.swift */; };
 		D82A94FF2896897900085E03 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82A94FE2896897900085E03 /* String.swift */; };
 		D82A95032896A05000085E03 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = D82A95022896A05000085E03 /* SwiftSoup */; };
+		D84C6EED289BE79D00D89969 /* Fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84C6EEC289BE79D00D89969 /* Fetcher.swift */; };
 		D85BE7FC2891354F0099C2FE /* LocateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85BE7FB2891354F0099C2FE /* LocateApp.swift */; };
 		D85BE7FE2891354F0099C2FE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85BE7FD2891354F0099C2FE /* ContentView.swift */; };
 		D85BE800289135550099C2FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D85BE7FF289135550099C2FE /* Assets.xcassets */; };
@@ -56,6 +57,7 @@
 		D8202D2D2893D4B100C0D319 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		D8202D2F2893E2B100C0D319 /* Locate-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Locate-Info.plist"; sourceTree = "<group>"; };
 		D82A94FE2896897900085E03 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		D84C6EEC289BE79D00D89969 /* Fetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetcher.swift; sourceTree = "<group>"; };
 		D85BE7F82891354F0099C2FE /* Locate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Locate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D85BE7FB2891354F0099C2FE /* LocateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocateApp.swift; sourceTree = "<group>"; };
 		D85BE7FD2891354F0099C2FE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -106,6 +108,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		D84C6EEB289BE78D00D89969 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				D84C6EEC289BE79D00D89969 /* Fetcher.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		D85BE7EF2891354F0099C2FE = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +146,7 @@
 				D802854E28958DD000565FA3 /* Extensions */,
 				D894DA6A2896594100A4C6A0 /* Model */,
 				D85BE801289135550099C2FE /* Preview Content */,
+				D84C6EEB289BE78D00D89969 /* Utilities */,
 				D894DA692896591800A4C6A0 /* Views */,
 			);
 			path = Locate;
@@ -338,6 +349,7 @@
 				D85BE7FE2891354F0099C2FE /* ContentView.swift in Sources */,
 				D8A154BC2895534C00E1E037 /* WebView.swift in Sources */,
 				D85BE7FC2891354F0099C2FE /* LocateApp.swift in Sources */,
+				D84C6EED289BE79D00D89969 /* Fetcher.swift in Sources */,
 				D8202D2C2893D45800C0D319 /* Location.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
