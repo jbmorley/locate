@@ -2,6 +2,10 @@ import SwiftUI
 
 struct TagList: View {
 
+    struct LayoutMetrics {
+        static let cornerRadius = 4.0
+    }
+
     @Binding var items: Set<String>
     private var isEditable: Bool
 
@@ -30,8 +34,10 @@ struct TagList: View {
                 }
                 .padding(2)
                 .foregroundColor(item.color())
-                .background(item.color().opacity(0.3))
-                .clipShape(Capsule())
+                .background(item.color()
+                    .opacity(0.3)
+                    .background(Color.controlBackgroundColor))
+                .clipShape(RoundedRectangle(cornerRadius: LayoutMetrics.cornerRadius))
                 .onTapGesture {
                     guard isEditable else {
                         return

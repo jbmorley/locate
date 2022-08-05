@@ -26,6 +26,7 @@
 		D85BE80E289135550099C2FE /* LocateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85BE80D289135550099C2FE /* LocateTests.swift */; };
 		D85BE818289135550099C2FE /* LocateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85BE817289135550099C2FE /* LocateUITests.swift */; };
 		D85BE81A289135550099C2FE /* LocateUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85BE819289135550099C2FE /* LocateUITestsLaunchTests.swift */; };
+		D8A06308289DAE13006A8904 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A06307289DAE13006A8904 /* Color.swift */; };
 		D8A154BC2895534C00E1E037 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A154BB2895534C00E1E037 /* WebView.swift */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +70,7 @@
 		D85BE813289135550099C2FE /* LocateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocateUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D85BE817289135550099C2FE /* LocateUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocateUITests.swift; sourceTree = "<group>"; };
 		D85BE819289135550099C2FE /* LocateUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocateUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D8A06307289DAE13006A8904 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		D8A154BB2895534C00E1E037 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				D802854F28958DDB00565FA3 /* CLLocationCoordinate2D.swift */,
+				D8A06307289DAE13006A8904 /* Color.swift */,
 				D82A94FE2896897900085E03 /* String.swift */,
 			);
 			path = Extensions;
@@ -347,6 +350,7 @@
 				D8202D242893D2C400C0D319 /* PlaceList.swift in Sources */,
 				D808A93D28967F3E00586A2B /* TagList.swift in Sources */,
 				D85BE7FE2891354F0099C2FE /* ContentView.swift in Sources */,
+				D8A06308289DAE13006A8904 /* Color.swift in Sources */,
 				D8A154BC2895534C00E1E037 /* WebView.swift in Sources */,
 				D85BE7FC2891354F0099C2FE /* LocateApp.swift in Sources */,
 				D84C6EED289BE79D00D89969 /* Fetcher.swift in Sources */,
