@@ -1,5 +1,25 @@
 import SwiftUI
 
+extension String {
+
+    static let tagSeparatorCharacterSet = CharacterSet(charactersIn: ", ")
+
+    func asTags() -> [String] {
+        return components(separatedBy: Self.tagSeparatorCharacterSet)
+            .map { $0.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines) }
+            .filter { !$0.isEmpty }
+    }
+
+    var containsCompleteTags: Bool {
+        guard let lastCharacter = self.last else {
+            return false
+        }
+        let characterSet = CharacterSet(charactersIn: String(lastCharacter))
+        return characterSet.isSubset(of: Self.tagSeparatorCharacterSet)
+    }
+
+}
+
 class PlaceFormModel: ObservableObject {
 
     @MainActor @Published var id = UUID()
@@ -7,6 +27,7 @@ class PlaceFormModel: ObservableObject {
     @MainActor @Published var link = ""
     @MainActor @Published var isUpdating = false
     @MainActor @Published var tags: Set<String> = []
+    @MainActor @Published var nextTag: String = ""
 
     private var model: Model
 
@@ -22,6 +43,11 @@ class PlaceFormModel: ObservableObject {
 
     @MainActor func submit() {
         model.update(place: Place(id: id, address: address, link: link, tags: Array(tags)))
+    }
+
+    @MainActor func submitTags() {
+        tags = tags.union(nextTag.asTags())
+        nextTag = ""
     }
 
     // TODO: Debounce the changes and guard against identical URLs
@@ -50,6 +76,19 @@ class PlaceFormModel: ObservableObject {
         }
     }
 
+    @Sendable func detectTags() async {
+        for await nextTag in $nextTag.values {
+            await MainActor.run {
+                guard nextTag.containsCompleteTags else {
+                    return
+                }
+                tags = tags.union(nextTag.asTags())
+                self.nextTag = ""
+            }
+            print(nextTag)
+        }
+    }
+
 }
 
 extension String: Identifiable {
@@ -67,7 +106,6 @@ struct PlaceForm: View {
     @Environment(\.presentationMode) var presentationMode
 
     @StateObject var placeFormModel: PlaceFormModel
-    @State var nextTag: String = ""
 
     @MainActor init(model: Model, place: Place? = nil) {
         _placeFormModel = StateObject(wrappedValue: PlaceFormModel(model: model, place: place))
@@ -94,17 +132,13 @@ struct PlaceForm: View {
                 LabeledContent("Tags") {
                     VStack {
                         TagList(items: $placeFormModel.tags)
-                        TextField("", text: $nextTag)
+                        TextField("", text: $placeFormModel.nextTag)
                             .lineLimit(1)
                             .frame(minWidth: 0)
                             .onSubmit {
-                                guard !nextTag.isEmpty else {
-                                    return
-                                }
-                                placeFormModel.tags.insert(nextTag)
-                                nextTag = ""
+                                placeFormModel.submitTags()
                             }
-                            .submitScope(!nextTag.isEmpty)
+                            .submitScope(!placeFormModel.nextTag.isEmpty)
                     }
                 }
             }
@@ -125,6 +159,7 @@ struct PlaceForm: View {
         }
         .padding()
         .task(placeFormModel.fetchTitles)
+        .task(placeFormModel.detectTags)
     }
 
 }
