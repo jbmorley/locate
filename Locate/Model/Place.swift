@@ -18,4 +18,15 @@ struct Place: Identifiable, Hashable, Codable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
+
+    func matches(filter: String, tags: Set<String>) -> Bool {
+        guard !filter.isEmpty || !tags.isEmpty else {
+            return true
+        }
+        let placeTags = Set(self.tags ?? [])
+        let matchesTags = !tags.intersection(placeTags).isEmpty
+        let matchesFilter = !filter.isEmpty && address.localizedCaseInsensitiveContains(filter)
+        return matchesTags || matchesFilter
+    }
+
 }

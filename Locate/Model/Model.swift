@@ -41,6 +41,7 @@ class Model: NSObject, ObservableObject {
 
     // UI.
     @MainActor @Published var sheet: Sheet? = nil
+    @MainActor @Published var selection: Set<Place.ID> = []
 
     @MainActor var selectedPlace: Place? {
         guard selection.count == 1 else {
@@ -60,15 +61,13 @@ class Model: NSObject, ObservableObject {
     private var locationManager: CLLocationManager?
     private var cancellables: Set<AnyCancellable> = []
 
-    var storeUrl: URL {
+    private var storeUrl: URL {
         let libraryUrl = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask).first
         return libraryUrl!.appending(path: "places.json")
     }
 
     // TODO: Introduce a second view model for the map selection
     // TODO: Better default location
-
-    @MainActor @Published var selection: Set<Place.ID> = []
 
     private let geocoder = CLGeocoder()
 
@@ -270,23 +269,14 @@ class Model: NSObject, ObservableObject {
             .combineLatest($places)
             .compactMap { (arg0, places) in
                 let (filter, tokens) = arg0
-                let tokenSet = Set(tokens)
-                let places = places.filter { place in
-                    guard !filter.isEmpty || !tokens.isEmpty else {
-                        return true
-                    }
-                    let placeTags = Set(place.tags ?? [])
-                    let matchesTags = !tokenSet.intersection(placeTags).isEmpty
-                    let matchesFilter = !filter.isEmpty && place.address.localizedCaseInsensitiveContains(filter)
-                    return matchesTags || matchesFilter
-                }
-                return places
+                return places.filter { $0.matches(filter: filter, tags: Set(tokens)) }
             }
             .receive(on: DispatchQueue.main)  // TODO: Express as MainActor?
             .sink { places in
                 self.filteredPlaces = places
             }
             .store(in: &cancellables)
+
     }
 
 //    @Sendable func run() async {
