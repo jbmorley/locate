@@ -38,12 +38,12 @@ struct TagList: View {
                     .opacity(0.3)
                     .background(Color.controlBackgroundColor))
                 .clipShape(RoundedRectangle(cornerRadius: LayoutMetrics.cornerRadius))
-                .onTapGesture {
+                .onOptionalTapGesture(isEditable ? {
                     guard isEditable else {
                         return
                     }
                     items.remove(item)
-                }
+                } : nil)
             }
             Spacer()
         }

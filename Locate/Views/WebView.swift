@@ -12,7 +12,10 @@ struct WebView: NSViewRepresentable {
     }
 
     func updateNSView(_ webView: WKWebView, context: Context) {
-        webView.load(URLRequest(url: url))
+        webView.stopLoading()
+        webView.evaluateJavaScript("document.body.remove()") { (_, _) in
+            webView.load(URLRequest(url: url))
+        }
     }
 
 }
