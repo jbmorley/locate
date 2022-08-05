@@ -30,6 +30,9 @@ struct PlaceList: View {
                 }
             }
         }
+        .contextAction(forSelectionType: Place.ID.self) { selection in
+            model.open(ids: selection)
+        }
         .contextMenu(forSelectionType: Place.ID.self) { selection in
             Button("Open") {
                 model.open(ids: selection)
