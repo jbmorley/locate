@@ -6,7 +6,7 @@ struct LocateApp: App {
     @StateObject var model = Model()
 
     var body: some Scene {
-        WindowGroup {
+        Window("Locate", id: "main") {
             ContentView(model: model)
         }
         .commands {
