@@ -35,6 +35,12 @@ struct PlaceList: View {
                 model.open(ids: selection)
             }
             Divider()
+            if selection.count == 1, let id = selection.first {
+                Button("Edit") {
+                    model.edit(id: id)
+                }
+                Divider()
+            }
             Button("Copy") {
                 model.copy(ids: selection)
             }

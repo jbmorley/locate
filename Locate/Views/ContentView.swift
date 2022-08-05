@@ -6,24 +6,7 @@ import SwiftUI
 
 struct ContentView: View {
 
-    // TODO: Push this down into the model?
-    enum Sheet: Identifiable {
-        
-        var id: String {
-            switch self {
-            case .newPlace:
-                return "new-place"
-            case .editPlace(let place):
-                return "edit-place-\(place.id)"
-            }
-        }
-
-        case newPlace
-        case editPlace(Place)
-    }
-
     @ObservedObject var model: Model
-    @State var sheet: Sheet? = nil
 
     var body: some View {
         GeometryReader { geometry in
@@ -61,7 +44,7 @@ struct ContentView: View {
                         guard let selectedPlace = model.selectedPlace else {
                             return
                         }
-                        sheet = .editPlace(selectedPlace)
+                        model.sheet = .editPlace(selectedPlace)
                     } label: {
                         Image(systemName: "pencil")
                     }
@@ -98,7 +81,7 @@ struct ContentView: View {
 
                 ToolbarItem(id: "add") {
                     Button {
-                        sheet = .newPlace
+                        model.sheet = .newPlace
                     } label: {
                         Image(systemName: "plus")
                     }
@@ -106,7 +89,7 @@ struct ContentView: View {
                 }
 
             }
-            .sheet(item: $sheet) { sheet in
+            .sheet(item: $model.sheet) { sheet in
                 switch sheet {
                 case .newPlace:
                     PlaceForm(model: model)

@@ -7,7 +7,20 @@ import SwiftSoup
 
 class Model: NSObject, ObservableObject {
 
-    var cancellables: Set<AnyCancellable> = []
+    enum Sheet: Identifiable {
+
+        var id: String {
+            switch self {
+            case .newPlace:
+                return "new-place"
+            case .editPlace(let place):
+                return "edit-place-\(place.id)"
+            }
+        }
+
+        case newPlace
+        case editPlace(Place)
+    }
 
     @Environment(\.openURL) private var openURL
 
@@ -26,6 +39,9 @@ class Model: NSObject, ObservableObject {
     @MainActor @Published var filterTokens: [String] = []
     @MainActor @Published var suggestedTokens: [String] = []
 
+    // UI.
+    @MainActor @Published var sheet: Sheet? = nil
+
     @MainActor var selectedPlace: Place? {
         guard selection.count == 1 else {
             return nil
@@ -41,8 +57,8 @@ class Model: NSObject, ObservableObject {
     }
 
     private var userLocation: CLLocationCoordinate2D? = nil
-
     private var locationManager: CLLocationManager?
+    private var cancellables: Set<AnyCancellable> = []
 
     var storeUrl: URL {
         let libraryUrl = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask).first
@@ -65,7 +81,6 @@ class Model: NSObject, ObservableObject {
         } catch {
             print("Failed to load places with error \(error).")
         }
-
         self.requestAuthorization()
     }
 
@@ -90,6 +105,13 @@ class Model: NSObject, ObservableObject {
     @MainActor func delete(ids: Set<Place.ID>) {
         selection = []
         places.removeAll { ids.contains($0.id) }
+    }
+
+    @MainActor func edit(id: Place.ID) {
+        guard let place = places.first(where: { $0.id == id }) else {
+            return
+        }
+        sheet = .editPlace(place)
     }
 
     @MainActor func update(place: Place) {
