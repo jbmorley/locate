@@ -8,21 +8,18 @@ struct ContentView: View {
     var body: some View {
         GeometryReader { geometry in
             HStack(spacing: 0) {
-                VStack(spacing: 0) {
-                    PlaceList(model: model)
-                        .safeAreaInset(edge: .bottom) {
-                            if model.isUpdating {
-                                Text("Updating Locations...")
-                                    .padding()
-                                    .frame(maxWidth: .infinity)
-                                    .background(.regularMaterial)
-                            }
+                PlaceList(model: model)
+                    .safeAreaInset(edge: .bottom) {
+                        if model.isUpdating {
+                            Text("Updating Locations...")
+                                .padding()
+                                .frame(maxWidth: .infinity)
+                                .background(.regularMaterial)
                         }
-                        .frame(width: geometry.size.width * 0.3)
-                }
-                HSplitView {
+                    }
+                    .frame(width: geometry.size.width * 0.3)
+                HStack(spacing: 0) {
                     MapView(model: model)
-                        .frame(minWidth: 100)
                     if let url = model.selectedPlace?.url {
                         WebView(url: url)
                     }
