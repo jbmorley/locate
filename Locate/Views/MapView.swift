@@ -26,12 +26,12 @@ struct MapView: View {
                     .clipShape(Circle())
                     .overlay(Circle()
                         .stroke(Color.accentColor,
-                                lineWidth: model.selection.contains(location.id) ? LayoutMetrics.selectionLineWidth : 0))
+                                lineWidth: model.selection.ids.contains(location.id) ? LayoutMetrics.selectionLineWidth : 0))
                     .onTapGesture(count: 2) {
                         model.open(ids: [location.id])
                     }
                     .simultaneousGesture(TapGesture().onEnded {
-                        model.selection = [location.id]
+                        model.selection.ids = [location.id]
                     })
             }
         }

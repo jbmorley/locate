@@ -2,8 +2,9 @@ import SwiftUI
 
 struct MapToolbar: CustomizableToolbarContent {
 
+    @EnvironmentObject var model: Model
+
     var id: String
-    @ObservedObject var model: Model
 
     var body: some CustomizableToolbarContent {
 

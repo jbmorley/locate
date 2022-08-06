@@ -31,6 +31,9 @@
 		D8A0630E289E0A21006A8904 /* SelectionToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A0630D289E0A21006A8904 /* SelectionToolbar.swift */; };
 		D8A06310289E0A82006A8904 /* MapToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A0630F289E0A82006A8904 /* MapToolbar.swift */; };
 		D8A06312289E0BEF006A8904 /* ItemToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A06311289E0BEF006A8904 /* ItemToolbar.swift */; };
+		D8A06315289E216A006A8904 /* ItemCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A06314289E216A006A8904 /* ItemCommands.swift */; };
+		D8A06317289E2196006A8904 /* SelectionCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A06316289E2196006A8904 /* SelectionCommands.swift */; };
+		D8A06319289E2404006A8904 /* Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A06318289E2404006A8904 /* Selection.swift */; };
 		D8A154BC2895534C00E1E037 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A154BB2895534C00E1E037 /* WebView.swift */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +82,9 @@
 		D8A0630D289E0A21006A8904 /* SelectionToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionToolbar.swift; sourceTree = "<group>"; };
 		D8A0630F289E0A82006A8904 /* MapToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapToolbar.swift; sourceTree = "<group>"; };
 		D8A06311289E0BEF006A8904 /* ItemToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemToolbar.swift; sourceTree = "<group>"; };
+		D8A06314289E216A006A8904 /* ItemCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCommands.swift; sourceTree = "<group>"; };
+		D8A06316289E2196006A8904 /* SelectionCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionCommands.swift; sourceTree = "<group>"; };
+		D8A06318289E2404006A8904 /* Selection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Selection.swift; sourceTree = "<group>"; };
 		D8A154BB2895534C00E1E037 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -154,6 +160,7 @@
 				D85BE804289135550099C2FE /* Locate.entitlements */,
 				D85BE7FB2891354F0099C2FE /* LocateApp.swift */,
 				D85BE7FF289135550099C2FE /* Assets.xcassets */,
+				D8A06313289E2148006A8904 /* Commands */,
 				D802854E28958DD000565FA3 /* Extensions */,
 				D894DA6A2896594100A4C6A0 /* Model */,
 				D85BE801289135550099C2FE /* Preview Content */,
@@ -209,6 +216,7 @@
 				D8202D2B2893D45800C0D319 /* Location.swift */,
 				D8202D272893D36900C0D319 /* Model.swift */,
 				D8202D2D2893D4B100C0D319 /* Place.swift */,
+				D8A06318289E2404006A8904 /* Selection.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -229,6 +237,15 @@
 				D8A0630D289E0A21006A8904 /* SelectionToolbar.swift */,
 			);
 			path = Toolbars;
+			sourceTree = "<group>";
+		};
+		D8A06313289E2148006A8904 /* Commands */ = {
+			isa = PBXGroup;
+			children = (
+				D8A06314289E216A006A8904 /* ItemCommands.swift */,
+				D8A06316289E2196006A8904 /* SelectionCommands.swift */,
+			);
+			path = Commands;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -369,6 +386,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8A06319289E2404006A8904 /* Selection.swift in Sources */,
 				D8A06312289E0BEF006A8904 /* ItemToolbar.swift in Sources */,
 				D8202D282893D36900C0D319 /* Model.swift in Sources */,
 				D82A94FF2896897900085E03 /* String.swift in Sources */,
@@ -380,8 +398,10 @@
 				D8202D2E2893D4B100C0D319 /* Place.swift in Sources */,
 				D8202D242893D2C400C0D319 /* PlaceList.swift in Sources */,
 				D808A93D28967F3E00586A2B /* TagList.swift in Sources */,
+				D8A06315289E216A006A8904 /* ItemCommands.swift in Sources */,
 				D85BE7FE2891354F0099C2FE /* ContentView.swift in Sources */,
 				D8A0630E289E0A21006A8904 /* SelectionToolbar.swift in Sources */,
+				D8A06317289E2196006A8904 /* SelectionCommands.swift in Sources */,
 				D8A06308289DAE13006A8904 /* Color.swift in Sources */,
 				D8A154BC2895534C00E1E037 /* WebView.swift in Sources */,
 				D85BE7FC2891354F0099C2FE /* LocateApp.swift in Sources */,

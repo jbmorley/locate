@@ -4,14 +4,9 @@ struct PlaceList: View {
 
     @ObservedObject var model: Model
 
-    // TODO: Push this into the model
-    var places: [Place] {
-        return model.filteredPlaces.sorted { $0.address.localizedCompare($1.address) == .orderedAscending }
-    }
-
     var body: some View {
-        List(selection: $model.selection) {
-            ForEach(places) { place in
+        List(selection: $model.selection.ids) {
+            ForEach(model.filteredPlaces) { place in
                 HStack {
                     if let image = model.images[place.id] {
                         Image(nsImage: image)

@@ -8,7 +8,7 @@ enum FetcherError: Error {
 
 class Fetcher {
 
-    // TODO: Clean this up?
+#warning("TODO: Throw errors from here")
     static func title(for url: URL) async -> String? {
         do {
             let (data, _) = try await URLSession.shared.data(from: url)

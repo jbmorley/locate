@@ -1,12 +1,9 @@
 import SwiftUI
 
-// TODO: Show progress when geocoding
-// TODO: Can NewPlaceFormModel pluck the model out of the environment?
-// TODO: Model in environment
-
 struct ContentView: View {
 
-    @ObservedObject var model: Model
+    @EnvironmentObject var model: Model
+    @EnvironmentObject var selection: Selection
 
     var body: some View {
         GeometryReader { geometry in
@@ -27,9 +24,9 @@ struct ContentView: View {
                 }
             }
             .toolbar(id: "main") {
-                SelectionToolbar(id: "selection", model: model)
-                ItemToolbar(id: "items", model: model)
-                MapToolbar(id: "map", model: model)
+                SelectionToolbar(id: "selection")
+                ItemToolbar(id: "items")
+                MapToolbar(id: "map")
             }
             .sheet(item: $model.sheet) { sheet in
                 switch sheet {
@@ -53,6 +50,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(model: Model())
+        ContentView()
     }
 }

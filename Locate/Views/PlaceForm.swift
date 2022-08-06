@@ -20,6 +20,8 @@ extension String {
 
 }
 
+#warning("TODO: Can this access the model from the environment?")
+#warning("TODO: Move into separate file")
 class PlaceFormModel: ObservableObject {
 
     @MainActor @Published var id = UUID()
@@ -50,7 +52,7 @@ class PlaceFormModel: ObservableObject {
         nextTag = ""
     }
 
-    // TODO: Debounce the changes and guard against identical URLs
+#warning("TODO: Debounce the changes and guard against identical URLs")
     @Sendable func fetchTitles() async {
         for await link in $link.values {
             guard let url = URL(string: link) else {

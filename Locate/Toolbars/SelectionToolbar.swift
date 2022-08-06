@@ -2,53 +2,51 @@ import SwiftUI
 
 struct SelectionToolbar: CustomizableToolbarContent {
 
+    @EnvironmentObject var selection: Selection
+
     var id: String
-    @ObservedObject var model: Model
 
     var body: some CustomizableToolbarContent {
 
         ToolbarItem(id: "open") {
             Button {
-                model.open(ids: model.selection)
+                selection.open()
             } label: {
                 Label("Open", systemImage: "safari")
             }
             .help("Open selected items in default web browser")
             .keyboardShortcut(.return, modifiers: [])
-            .disabled(model.selection.isEmpty)
+            .disabled(selection.isEmpty)
         }
 
         ToolbarItem(id: "edit") {
             Button {
-                guard let selectedPlace = model.selectedPlace else {
-                    return
-                }
-                model.sheet = .editPlace(selectedPlace)
+                selection.edit()
             } label: {
                 Label("Edit", systemImage: "pencil")
             }
             .help("Edit selected items")
             .keyboardShortcut(.return)
-            .disabled(model.selection.count != 1)
+            .disabled(!selection.canEdit)
         }
 
         ToolbarItem(id: "delete") {
             Button {
-                model.delete(ids: model.selection)
+                selection.delete()
             } label: {
                 Label("Delete", systemImage: "trash")
             }
             .help("Delete selected items")
             .keyboardShortcut(.delete)
-            .disabled(model.selection.isEmpty)
+            .disabled(selection.isEmpty)
         }
 
         ToolbarItem(id: "share") {
-            ShareLink(items: model.selectedUrls()) {
+            ShareLink(items: selection.urls) {
                 Label("Share", systemImage: "square.and.arrow.up")
             }
             .help("Share selected items")
-            .disabled(model.selection.isEmpty)
+            .disabled(selection.isEmpty)
         }
 
     }

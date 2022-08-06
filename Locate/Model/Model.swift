@@ -5,6 +5,7 @@ import SwiftUI
 
 import SwiftSoup
 
+#warning("TODO: Separate model and store")
 class Model: NSObject, ObservableObject {
 
     enum Sheet: Identifiable {
@@ -25,7 +26,7 @@ class Model: NSObject, ObservableObject {
     @Environment(\.openURL) private var openURL
 
     @MainActor @Published var places: [Place] = []
-    @MainActor @Published var locations: [Location] = []  // TODO: Read only?
+    @MainActor @Published var locations: [Location] = []
     @MainActor @Published var isUpdating: Bool = false
     @MainActor var centeredLocation: CLLocationCoordinate2D? = nil
     @MainActor @Published var images: [Place.ID:NSImage] = [:]
@@ -41,20 +42,23 @@ class Model: NSObject, ObservableObject {
 
     // UI.
     @MainActor @Published var sheet: Sheet? = nil
-    @MainActor @Published var selection: Set<Place.ID> = []
+#warning("TODO: Remove selection from model")
+    @MainActor var selection: Selection!
 
+#warning("TODO: Push selectedPlace into selection")
     @MainActor var selectedPlace: Place? {
-        guard selection.count == 1 else {
+        guard selection.ids.count == 1 else {
             return nil
         }
-        return places.first { $0.id == selection.first }
+        return places.first { $0.id == selection.ids.first }
     }
 
+#warning("TODO: Push selectedLocation into selection")
     @MainActor var selectedLocation: Location? {
-        guard selection.count == 1 else {
+        guard selection.ids.count == 1 else {
             return nil
         }
-        return locations.first { $0.id == selection.first }
+        return locations.first { $0.id == selection.ids.first }
     }
 
     private var userLocation: CLLocationCoordinate2D? = nil
@@ -66,13 +70,14 @@ class Model: NSObject, ObservableObject {
         return libraryUrl!.appending(path: "places.json")
     }
 
-    // TODO: Introduce a second view model for the map selection
-    // TODO: Better default location
+#warning("TODO: Introduce a second view model for the map selection")
+#warning("TODO: Better default location")
 
     private let geocoder = CLGeocoder()
 
     @MainActor override init() {
         super.init()
+        selection = Selection(model: self)
         do {
             let data = try Data(contentsOf: storeUrl)
             let places = try JSONDecoder().decode([Place].self, from: data)
@@ -90,13 +95,7 @@ class Model: NSObject, ObservableObject {
     }
 
     @MainActor func open(ids: Set<Place.ID>) {
-        for id in ids {
-            guard let place = places.first(where: { $0.id == id }) else {
-                return
-            }
-            guard let url = URL(string: place.link) else {
-                return
-            }
+        for url in urls(ids: ids) {
             openURL(url)
         }
     }
@@ -106,7 +105,7 @@ class Model: NSObject, ObservableObject {
     }
 
     @MainActor func delete(ids: Set<Place.ID>) {
-        selection = []
+        selection.ids = []
         places.removeAll { ids.contains($0.id) }
     }
 
@@ -120,27 +119,29 @@ class Model: NSObject, ObservableObject {
     @MainActor func update(place: Place) {
         guard let index = places.firstIndex(where: { $0.id == place.id }) else {
             places.append(place)
-            selection = [place.id]
+            selection.ids = [place.id]
             return
         }
         places[index] = place
-        selection = [place.id]
+        selection.ids = [place.id]
     }
 
-    @MainActor func selectedUrls() -> [URL] {
-        let urls = selection.compactMap { id in
+    @MainActor func places(ids: Set<Place.ID>) -> [Place] {
+        return ids.compactMap { id in
             return places.first { $0.id == id }
-        }.compactMap {
+        }
+    }
+
+    @MainActor func urls(ids: Set<Place.ID>) -> [URL] {
+        return places.compactMap {
             return URL(string: $0.link)
         }
-        return urls
     }
 
     @MainActor func copy(ids: Set<Place.ID>) {
-        let urls = selectedUrls().map {
+        let urls = urls(ids: ids).map {
             return $0 as NSURL
         }
-        print("copy: \(urls)")
         NSPasteboard.general.clearContents()
         NSPasteboard.general.writeObjects(urls)
         NSPasteboard.general.writeObjects(urls.compactMap({ $0.absoluteString as? NSString }))
@@ -161,7 +162,7 @@ class Model: NSObject, ObservableObject {
                 let data = try encoder.encode(places)
                 try data.write(to: storeUrl, options: .atomic)
             } catch {
-                // TODO: Model error in meaningful way
+#warning("TODO: Model error in meaningful way")
                 print("Failed to save with error \(error).")
             }
         }
@@ -209,7 +210,7 @@ class Model: NSObject, ObservableObject {
                 print(url)
                 do {
                     let (data, _) = try await URLSession.shared.data(from: url)
-                    // TODO: Check the response
+#warning("TODO: Check HTTP response")
                     guard let html = String(data: data, encoding: .utf8) else {
                         continue
                     }
@@ -273,7 +274,9 @@ class Model: NSObject, ObservableObject {
             .combineLatest($places)
             .compactMap { (arg0, places) in
                 let (filter, tokens) = arg0
-                return places.filter { $0.matches(filter: filter, tags: Set(tokens)) }
+                return places
+                    .filter { $0.matches(filter: filter, tags: Set(tokens)) }
+                    .sorted { $0.address.localizedCompare($1.address) == .orderedAscending }
             }
             .receive(on: DispatchQueue.main)  // TODO: Express as MainActor?
             .sink { places in
