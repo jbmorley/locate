@@ -9,7 +9,7 @@ struct ItemToolbar: CustomizableToolbarContent {
 
         ToolbarItem(id: "add") {
             Button {
-                model.sheet = .newPlace
+                model.add()
             } label: {
                 Label("Add", systemImage: "plus")
             }

@@ -101,6 +101,10 @@ class Model: NSObject, ObservableObject {
         }
     }
 
+    @MainActor func add() {
+        sheet = .newPlace
+    }
+
     @MainActor func delete(ids: Set<Place.ID>) {
         selection = []
         places.removeAll { ids.contains($0.id) }
