@@ -28,6 +28,9 @@
 		D85BE81A289135550099C2FE /* LocateUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85BE819289135550099C2FE /* LocateUITestsLaunchTests.swift */; };
 		D8A06308289DAE13006A8904 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A06307289DAE13006A8904 /* Color.swift */; };
 		D8A0630B289DB1FB006A8904 /* OptionalTapGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A0630A289DB1FB006A8904 /* OptionalTapGesture.swift */; };
+		D8A0630E289E0A21006A8904 /* SelectionToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A0630D289E0A21006A8904 /* SelectionToolbar.swift */; };
+		D8A06310289E0A82006A8904 /* MapToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A0630F289E0A82006A8904 /* MapToolbar.swift */; };
+		D8A06312289E0BEF006A8904 /* ItemToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A06311289E0BEF006A8904 /* ItemToolbar.swift */; };
 		D8A154BC2895534C00E1E037 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A154BB2895534C00E1E037 /* WebView.swift */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +76,9 @@
 		D85BE819289135550099C2FE /* LocateUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocateUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D8A06307289DAE13006A8904 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		D8A0630A289DB1FB006A8904 /* OptionalTapGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalTapGesture.swift; sourceTree = "<group>"; };
+		D8A0630D289E0A21006A8904 /* SelectionToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionToolbar.swift; sourceTree = "<group>"; };
+		D8A0630F289E0A82006A8904 /* MapToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapToolbar.swift; sourceTree = "<group>"; };
+		D8A06311289E0BEF006A8904 /* ItemToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemToolbar.swift; sourceTree = "<group>"; };
 		D8A154BB2895534C00E1E037 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,6 +157,7 @@
 				D802854E28958DD000565FA3 /* Extensions */,
 				D894DA6A2896594100A4C6A0 /* Model */,
 				D85BE801289135550099C2FE /* Preview Content */,
+				D8A0630C289E0A09006A8904 /* Toolbars */,
 				D84C6EEB289BE78D00D89969 /* Utilities */,
 				D8A06309289DB1E6006A8904 /* View Modifiers */,
 				D894DA692896591800A4C6A0 /* Views */,
@@ -212,6 +219,16 @@
 				D8A0630A289DB1FB006A8904 /* OptionalTapGesture.swift */,
 			);
 			path = "View Modifiers";
+			sourceTree = "<group>";
+		};
+		D8A0630C289E0A09006A8904 /* Toolbars */ = {
+			isa = PBXGroup;
+			children = (
+				D8A06311289E0BEF006A8904 /* ItemToolbar.swift */,
+				D8A0630F289E0A82006A8904 /* MapToolbar.swift */,
+				D8A0630D289E0A21006A8904 /* SelectionToolbar.swift */,
+			);
+			path = Toolbars;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -352,16 +369,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8A06312289E0BEF006A8904 /* ItemToolbar.swift in Sources */,
 				D8202D282893D36900C0D319 /* Model.swift in Sources */,
 				D82A94FF2896897900085E03 /* String.swift in Sources */,
 				D8202D2A2893D42500C0D319 /* MapView.swift in Sources */,
 				D8202D262893D32C00C0D319 /* PlaceForm.swift in Sources */,
+				D8A06310289E0A82006A8904 /* MapToolbar.swift in Sources */,
 				D8A0630B289DB1FB006A8904 /* OptionalTapGesture.swift in Sources */,
 				D802855028958DDB00565FA3 /* CLLocationCoordinate2D.swift in Sources */,
 				D8202D2E2893D4B100C0D319 /* Place.swift in Sources */,
 				D8202D242893D2C400C0D319 /* PlaceList.swift in Sources */,
 				D808A93D28967F3E00586A2B /* TagList.swift in Sources */,
 				D85BE7FE2891354F0099C2FE /* ContentView.swift in Sources */,
+				D8A0630E289E0A21006A8904 /* SelectionToolbar.swift in Sources */,
 				D8A06308289DAE13006A8904 /* Color.swift in Sources */,
 				D8A154BC2895534C00E1E037 /* WebView.swift in Sources */,
 				D85BE7FC2891354F0099C2FE /* LocateApp.swift in Sources */,

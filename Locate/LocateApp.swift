@@ -10,6 +10,8 @@ struct LocateApp: App {
             ContentView(model: model)
         }
         .commands {
+            ToolbarCommands()
+
             CommandMenu("Edit") {
                 Button("Copy") {
                     model.copy(ids: model.selection)

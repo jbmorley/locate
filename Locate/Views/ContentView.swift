@@ -27,67 +27,9 @@ struct ContentView: View {
                 }
             }
             .toolbar(id: "main") {
-
-                ToolbarItem(id: "open") {
-                    Button {
-                        model.open(ids: model.selection)
-                    } label: {
-                        Image(systemName: "safari")
-                    }
-                    .help("Open in Safari")
-                    .keyboardShortcut(.return, modifiers: [])
-                    .disabled(model.selection.isEmpty)
-                }
-
-                ToolbarItem(id: "edit") {
-                    Button {
-                        guard let selectedPlace = model.selectedPlace else {
-                            return
-                        }
-                        model.sheet = .editPlace(selectedPlace)
-                    } label: {
-                        Image(systemName: "pencil")
-                    }
-                    .help("Edit")
-                    .keyboardShortcut(.return)
-                    .disabled(model.selection.count != 1)
-                }
-
-                ToolbarItem(id: "delete") {
-                    Button {
-                        model.delete(ids: model.selection)
-                    } label: {
-                        Image(systemName: "trash")
-                    }
-                    .help("Delete")
-                    .keyboardShortcut(.delete)
-                    .disabled(model.selection.isEmpty)
-                }
-
-                ToolbarItem(id: "share") {
-                    ShareLink(items: model.selectedUrls()) {
-                        Image(systemName: "square.and.arrow.up")
-                    }
-                    .disabled(model.selection.isEmpty)
-                }
-
-                ToolbarItem(id: "center") {
-                    Button {
-                        model.center()
-                    } label: {
-                        Image(systemName: "location")
-                    }
-                }
-
-                ToolbarItem(id: "add") {
-                    Button {
-                        model.sheet = .newPlace
-                    } label: {
-                        Image(systemName: "plus")
-                    }
-                    .keyboardShortcut("n")
-                }
-
+                SelectionToolbar(id: "selection", model: model)
+                ItemToolbar(id: "items", model: model)
+                MapToolbar(id: "map", model: model)
             }
             .sheet(item: $model.sheet) { sheet in
                 switch sheet {
