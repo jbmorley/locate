@@ -16,8 +16,9 @@ struct ContentView: View {
                         .padding()
                     }
                 }
-                HStack(spacing: 0) {
+                HSplitView {
                     MapView(model: model)
+                        .frame(minWidth: 100)
                     if let url = model.selectedPlace?.url {
                         WebView(url: url)
                     }
