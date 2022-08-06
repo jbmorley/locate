@@ -155,7 +155,7 @@ class Model: NSObject, ObservableObject {
         self.centeredLocation = userLocation
     }
 
-    @Sendable func save() async {
+    private func save() async {
         for await places in $places.values {
             let encoder = JSONEncoder()
             do {
@@ -168,7 +168,7 @@ class Model: NSObject, ObservableObject {
         }
     }
 
-    @Sendable func geocode() async {
+    private func geocode() async {
         for await places in $places.values {
             await MainActor.run {
                 isUpdating = true
@@ -200,8 +200,7 @@ class Model: NSObject, ObservableObject {
         }
     }
 
-    @Sendable func thumbnails() async {
-
+    private func thumbnails() async {
         for await places in $places.values {
             for place in places {
                 guard let url = place.url else {
@@ -238,10 +237,9 @@ class Model: NSObject, ObservableObject {
                 }
             }
         }
-
     }
 
-    @Sendable func collectTags() async {
+    private func collectTags() async {
         for await places in $places.values {
             let tags = Set(places.map { $0.tags ?? [] }.flatMap { $0 })
             await MainActor.run {
@@ -286,9 +284,13 @@ class Model: NSObject, ObservableObject {
 
     }
 
-//    @Sendable func run() async {
-//        _ = await [geocode(), selection()]
-//    }
+    @Sendable func run() async {
+        async let geocode: () = await geocode()
+        async let save: () = await save()
+        async let thumbnails: () = await thumbnails()
+        async let collectTags: () = await collectTags()
+        _ = await [geocode, save, thumbnails, collectTags]
+    }
 
 }
 

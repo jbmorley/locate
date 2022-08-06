@@ -37,10 +37,7 @@ struct ContentView: View {
                 }
             }
         }
-        .task(model.geocode)
-        .task(model.save)
-        .task(model.thumbnails)
-        .task(model.collectTags)
+        .task(model.run)
         .onAppear {
             model.start()
         }
