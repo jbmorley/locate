@@ -168,7 +168,7 @@ class Model: NSObject, ObservableObject {
         }
     }
 
-    private func geocode() async {
+    private func geocodePlaces() async {
         for await places in $places.values {
             await MainActor.run {
                 isUpdating = true
@@ -200,7 +200,7 @@ class Model: NSObject, ObservableObject {
         }
     }
 
-    private func thumbnails() async {
+    private func fetchThumbnails() async {
         for await places in $places.values {
             for place in places {
                 guard let url = place.url else {
@@ -285,11 +285,11 @@ class Model: NSObject, ObservableObject {
     }
 
     @Sendable func run() async {
-        async let geocode: () = await geocode()
+        async let geocodePlaces: () = await geocodePlaces()
         async let save: () = await save()
-        async let thumbnails: () = await thumbnails()
+        async let fetchThumbnails: () = await fetchThumbnails()
         async let collectTags: () = await collectTags()
-        _ = await [geocode, save, thumbnails, collectTags]
+        _ = await [geocodePlaces, save, fetchThumbnails, collectTags]
     }
 
 }
