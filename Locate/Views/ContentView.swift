@@ -10,11 +10,15 @@ struct ContentView: View {
             HStack(spacing: 0) {
                 VStack(spacing: 0) {
                     PlaceList(model: model)
+                        .safeAreaInset(edge: .bottom) {
+                            if model.isUpdating {
+                                Text("Updating Locations...")
+                                    .padding()
+                                    .frame(maxWidth: .infinity)
+                                    .background(.regularMaterial)
+                            }
+                        }
                         .frame(width: geometry.size.width * 0.3)
-                    if model.isUpdating {
-                        Text("Updating Locations...")
-                        .padding()
-                    }
                 }
                 HSplitView {
                     MapView(model: model)
