@@ -1,0 +1,3 @@
+[submodule "interact"]
+	path = interact
+	url = git@github.com:inseven/interact.git
