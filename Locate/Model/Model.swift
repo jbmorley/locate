@@ -133,7 +133,7 @@ class Model: NSObject, ObservableObject {
     }
 
     @MainActor func urls(ids: Set<Place.ID>) -> [URL] {
-        return places.compactMap {
+        return places(ids: ids).compactMap {
             return URL(string: $0.link)
         }
     }
