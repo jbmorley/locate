@@ -206,7 +206,6 @@ class Model: NSObject, ObservableObject {
                 guard let url = place.url else {
                     continue
                 }
-                print(url)
                 do {
                     let (data, _) = try await URLSession.shared.data(from: url)
 #warning("TODO: Check HTTP response")
@@ -225,7 +224,6 @@ class Model: NSObject, ObservableObject {
                             let (data, _) = try await URLSession.shared.data(from: url)
                             let image = NSImage(data: data)
                             DispatchQueue.main.async {
-                                // TODO: This is ugly.
                                 self.images[place.id] = image
                             }
                             break
@@ -250,6 +248,8 @@ class Model: NSObject, ObservableObject {
 
     @MainActor func start() {
 
+#warning("TODO: Is it possible to express DisaptchQueue.main as MainActor?")
+
         // Update the suggested tokens whenever the filter or places change.
         $filter
             .combineLatest($tags)
@@ -259,7 +259,7 @@ class Model: NSObject, ObservableObject {
                 }
                 return Array(tags.filter { $0.starts(with: filter) })
             }
-            .receive(on: DispatchQueue.main)  // TODO: Express as MainActor?
+            .receive(on: DispatchQueue.main)
             .sink { suggestedTokens in
                 self.suggestedTokens = suggestedTokens
             }
@@ -276,7 +276,7 @@ class Model: NSObject, ObservableObject {
                     .filter { $0.matches(filter: filter, tags: Set(tokens)) }
                     .sorted { $0.address.localizedCompare($1.address) == .orderedAscending }
             }
-            .receive(on: DispatchQueue.main)  // TODO: Express as MainActor?
+            .receive(on: DispatchQueue.main)
             .sink { places in
                 self.filteredPlaces = places
             }
