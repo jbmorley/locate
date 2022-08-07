@@ -37,7 +37,6 @@ struct SelectionToolbar: CustomizableToolbarContent {
                 Label("Delete", systemImage: "trash")
             }
             .help("Delete selected items")
-            .keyboardShortcut(.delete)
             .disabled(selection.isEmpty)
         }
 

@@ -16,11 +16,18 @@ struct SelectionCommands: Commands {
 
             Divider()
 
+            Button("Edit Item") {
+                selection.edit()
+            }
+            .keyboardShortcut("i")
+            .disabled(!selection.canEdit)
+
             Button("Delete Selected Items") {
                 selection.delete()
             }
             .keyboardShortcut(.delete)
             .disabled(selection.isEmpty)
+
         }
 
     }
