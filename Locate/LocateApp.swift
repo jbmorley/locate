@@ -17,6 +17,7 @@ struct LocateApp: App {
         }
         .commands {
             ToolbarCommands()
+            SearchCommands()
             ItemCommands(model: model)
             SelectionCommands(selection: model.selection)
         }
