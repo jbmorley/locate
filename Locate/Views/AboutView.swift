@@ -9,7 +9,7 @@ struct AboutView: View {
     @Environment(\.openWindow) private var openWindow
 
     let actions: [Action]
-    let credits: [Acknowledgements]
+    let acknowledgements: [Acknowledgements]
     let licenses: [License]
 
     var body: some View {
@@ -29,7 +29,7 @@ struct AboutView: View {
                             .padding(.top)
                             .padding(.bottom, 2.0)
 
-                        ForEach(credits) { credits in
+                        ForEach(acknowledgements) { credits in
                             AboutSection(credits.title) {
                                 ForEach(credits.credits) { credit in
                                     if let url = credit.url {
@@ -43,6 +43,7 @@ struct AboutView: View {
                                 }
                             }
                         }
+                        
                         AboutSection("Licenses") {
                             ForEach(licenses) { license in
                                 Text(license.name)
