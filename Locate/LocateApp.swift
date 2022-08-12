@@ -1,5 +1,7 @@
 import SwiftUI
 
+import Diligence
+
 @main
 struct LocateApp: App {
 
@@ -20,6 +22,30 @@ struct LocateApp: App {
             SearchCommands()
             ItemCommands(model: model)
             SelectionCommands(selection: model.selection)
+            AboutCommands()
+        }
+        About {
+
+            Action("GitHub", url: URL(string: "https://github.com/jbmorley/locate")!)
+
+        } acknowledgements: {
+
+            Acknowledgements("Developers") {
+                Credit("Jason Morley", url: URL(string: "https://jbmorley.co.uk"))
+            }
+
+            Acknowledgements("Thanks") {
+                Credit("Michael Dales")
+                Credit("Sarah Barbour")
+            }
+
+        } licenses: {
+
+            License("Diligence", author: "InSeven Limited", filename: "diligence-license")
+            License("HashRainbow", author: "Sarah Barbour", filename: "hash-rainbow-license")
+            License("Interact", author: "InSeven Limited", filename: "interact-license")
+            License("SwiftSoup", author: "Nabil Chatbi", filename: "swift-soup-license")
+
         }
     }
 }

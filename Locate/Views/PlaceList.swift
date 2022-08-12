@@ -25,9 +25,6 @@ struct PlaceList: View {
                 }
             }
         }
-        .contextAction(forSelectionType: Place.ID.self) { selection in
-            model.open(ids: selection)
-        }
         .contextMenu(forSelectionType: Place.ID.self) { selection in
             Button("Open") {
                 model.open(ids: selection)
@@ -46,6 +43,8 @@ struct PlaceList: View {
             Button("Delete", role: .destructive) {
                 model.delete(ids: selection)
             }
+        } primaryAction: { selection in
+            model.open(ids: selection)
         }
         .searchable(text: $model.filter,
                     tokens: $model.filterTokens,
