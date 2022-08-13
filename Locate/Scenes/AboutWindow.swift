@@ -11,7 +11,7 @@ struct AboutWindow: Scene {
     let licenses: [License]
 
     var body: some Scene {
-        Window("About \(Bundle.main.displayName ?? "")", id: Self.windowID) {
+        Window("About", id: Self.windowID) {
             AboutView(actions: actions, acknowledgements: acknowledgements, licenses: licenses)
                 .frame(width: 600, height: 360)
         }
