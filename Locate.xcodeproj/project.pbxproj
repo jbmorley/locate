@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D802855028958DDB00565FA3 /* CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = D802854F28958DDB00565FA3 /* CLLocationCoordinate2D.swift */; };
-		D804A87D28A02918002CD7BD /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D804A87C28A02918002CD7BD /* AboutView.swift */; };
+		D804A87D28A02918002CD7BD /* MacAboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D804A87C28A02918002CD7BD /* MacAboutView.swift */; };
 		D804A87F28A04DF8002CD7BD /* swift-soup-license in Resources */ = {isa = PBXBuildFile; fileRef = D804A87E28A04DF8002CD7BD /* swift-soup-license */; };
 		D804A88128A05017002CD7BD /* hash-rainbow-license in Resources */ = {isa = PBXBuildFile; fileRef = D804A88028A05017002CD7BD /* hash-rainbow-license */; };
 		D804A88328A05CBA002CD7BD /* interact-license in Resources */ = {isa = PBXBuildFile; fileRef = D804A88228A05CBA002CD7BD /* interact-license */; };
@@ -72,7 +72,7 @@
 
 /* Begin PBXFileReference section */
 		D802854F28958DDB00565FA3 /* CLLocationCoordinate2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2D.swift; sourceTree = "<group>"; };
-		D804A87C28A02918002CD7BD /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		D804A87C28A02918002CD7BD /* MacAboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacAboutView.swift; sourceTree = "<group>"; };
 		D804A87E28A04DF8002CD7BD /* swift-soup-license */ = {isa = PBXFileReference; lastKnownFileType = text; path = "swift-soup-license"; sourceTree = "<group>"; };
 		D804A88028A05017002CD7BD /* hash-rainbow-license */ = {isa = PBXFileReference; lastKnownFileType = text; path = "hash-rainbow-license"; sourceTree = "<group>"; };
 		D804A88228A05CBA002CD7BD /* interact-license */ = {isa = PBXFileReference; lastKnownFileType = text; path = "interact-license"; sourceTree = "<group>"; };
@@ -249,7 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				D874742228A6A66500B97E1E /* AboutSection.swift */,
-				D804A87C28A02918002CD7BD /* AboutView.swift */,
+				D804A87C28A02918002CD7BD /* MacAboutView.swift */,
 				D85BE7FD2891354F0099C2FE /* ContentView.swift */,
 				D874743328A6A81C00B97E1E /* LicenseContent.swift */,
 				D8202D292893D42500C0D319 /* MapView.swift */,
@@ -492,7 +492,7 @@
 				D874743228A6A7DF00B97E1E /* AboutWindow.swift in Sources */,
 				D808A93D28967F3E00586A2B /* TagList.swift in Sources */,
 				D8A06315289E216A006A8904 /* ItemCommands.swift in Sources */,
-				D804A87D28A02918002CD7BD /* AboutView.swift in Sources */,
+				D804A87D28A02918002CD7BD /* MacAboutView.swift in Sources */,
 				D85BE7FE2891354F0099C2FE /* ContentView.swift in Sources */,
 				D8A0630E289E0A21006A8904 /* SelectionToolbar.swift in Sources */,
 				D874743428A6A81C00B97E1E /* LicenseContent.swift in Sources */,

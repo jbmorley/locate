@@ -3,14 +3,22 @@ import SwiftUI
 import Diligence
 import Interact
 
-struct AboutView: View {
+struct MacAboutView: View {
 
     @Environment(\.openURL) private var openURL
     @Environment(\.openWindow) private var openWindow
 
-    let actions: [Action]
-    let acknowledgements: [Acknowledgements]
-    let licenses: [License]
+    private let repository: String?
+    private let actions: [Action]
+    private let acknowledgements: [Acknowledgements]
+    private let licenses: [License]
+
+    init(repository: String? = nil, actions: [Action], acknowledgements: [Acknowledgements], licenses: [License]) {
+        self.repository = repository
+        self.actions = actions
+        self.acknowledgements = acknowledgements
+        self.licenses = licenses
+    }
 
     var body: some View {
         VStack(spacing: 0) {
@@ -57,7 +65,8 @@ struct AboutView: View {
                 Text("Version \(Bundle.main.version ?? "") (\(Bundle.main.build ?? ""))")
                     .foregroundColor(.secondary)
                     .textSelection(.enabled)
-                if let url = Bundle.main.commitUrl(for: "inseven/anytime"),
+                if let repository = repository,
+                   let url = Bundle.main.commitUrl(for: repository),
                    let commit = Bundle.main.commit {
                     Text(commit)
                         .hyperlink {

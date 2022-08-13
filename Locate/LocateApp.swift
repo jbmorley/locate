@@ -24,7 +24,7 @@ struct LocateApp: App {
             SelectionCommands(selection: model.selection)
             AboutCommands()
         }
-        About {
+        About(repository: "jbmorley/locate") {
 
             Action("GitHub", url: URL(string: "https://github.com/jbmorley/locate")!)
 

@@ -2,22 +2,25 @@ import SwiftUI
 
 import Diligence
 
-struct About: Scene {
+public struct About: Scene {
 
-    let actions: [Action]
-    let acknowledgements: [Acknowledgements]
-    let licenses: [License]
+    private let repository: String?
+    private let actions: [Action]
+    private let acknowledgements: [Acknowledgements]
+    private let licenses: [License]
 
-    init(@ActionsBuilder actions: () -> [Action],
-         @AcknowledgementsBuilder acknowledgements: () -> [Acknowledgements],
-         @LicensesBuilder licenses: () -> [License]) {
+    public init(repository: String? = nil,
+                @ActionsBuilder actions: () -> [Action],
+                @AcknowledgementsBuilder acknowledgements: () -> [Acknowledgements],
+                @LicensesBuilder licenses: () -> [License]) {
+        self.repository = repository
         self.actions = actions()
         self.acknowledgements = acknowledgements()
         self.licenses = licenses()
     }
 
-    var body: some Scene {
-        AboutWindow(actions: actions, acknowledgements: acknowledgements, licenses: licenses)
+    public var body: some Scene {
+        AboutWindow(repository: repository, actions: actions, acknowledgements: acknowledgements, licenses: licenses)
         LicenseWindowGroup(licenses: licenses)
     }
 
