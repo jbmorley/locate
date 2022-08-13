@@ -31,17 +31,12 @@
 		D85BE818289135550099C2FE /* LocateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85BE817289135550099C2FE /* LocateUITests.swift */; };
 		D85BE81A289135550099C2FE /* LocateUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85BE819289135550099C2FE /* LocateUITestsLaunchTests.swift */; };
 		D874741D28A6A5CF00B97E1E /* Hyperlink.swift in Sources */ = {isa = PBXBuildFile; fileRef = D874741C28A6A5CF00B97E1E /* Hyperlink.swift */; };
-		D874741F28A6A60700B97E1E /* Acknowledgements.swift in Sources */ = {isa = PBXBuildFile; fileRef = D874741E28A6A60700B97E1E /* Acknowledgements.swift */; };
-		D874742128A6A63600B97E1E /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = D874742028A6A63600B97E1E /* Action.swift */; };
 		D874742328A6A66500B97E1E /* AboutSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D874742228A6A66500B97E1E /* AboutSection.swift */; };
 		D874742528A6A6AD00B97E1E /* AboutCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = D874742428A6A6AD00B97E1E /* AboutCommands.swift */; };
-		D874742828A6A70100B97E1E /* LicensesBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D874742728A6A70100B97E1E /* LicensesBuilder.swift */; };
-		D874742A28A6A72000B97E1E /* ActionsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D874742928A6A72000B97E1E /* ActionsBuilder.swift */; };
 		D874742D28A6A77700B97E1E /* About.swift in Sources */ = {isa = PBXBuildFile; fileRef = D874742C28A6A77700B97E1E /* About.swift */; };
 		D874742F28A6A7AE00B97E1E /* LicenseWindows.swift in Sources */ = {isa = PBXBuildFile; fileRef = D874742E28A6A7AE00B97E1E /* LicenseWindows.swift */; };
 		D874743228A6A7DF00B97E1E /* AboutWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D874743128A6A7DF00B97E1E /* AboutWindow.swift */; };
 		D874743428A6A81C00B97E1E /* LicenseContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D874743328A6A81C00B97E1E /* LicenseContent.swift */; };
-		D874743628A6A8E000B97E1E /* CreditsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D874743528A6A8E000B97E1E /* CreditsBuilder.swift */; };
 		D874743828A6AA7400B97E1E /* MacIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = D874743728A6AA7400B97E1E /* MacIcon.swift */; };
 		D8A06308289DAE13006A8904 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A06307289DAE13006A8904 /* Color.swift */; };
 		D8A0630B289DB1FB006A8904 /* OptionalTapGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A0630A289DB1FB006A8904 /* OptionalTapGesture.swift */; };
@@ -103,17 +98,12 @@
 		D85BE817289135550099C2FE /* LocateUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocateUITests.swift; sourceTree = "<group>"; };
 		D85BE819289135550099C2FE /* LocateUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocateUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D874741C28A6A5CF00B97E1E /* Hyperlink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hyperlink.swift; sourceTree = "<group>"; };
-		D874741E28A6A60700B97E1E /* Acknowledgements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Acknowledgements.swift; sourceTree = "<group>"; };
-		D874742028A6A63600B97E1E /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		D874742228A6A66500B97E1E /* AboutSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutSection.swift; sourceTree = "<group>"; };
 		D874742428A6A6AD00B97E1E /* AboutCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCommands.swift; sourceTree = "<group>"; };
-		D874742728A6A70100B97E1E /* LicensesBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicensesBuilder.swift; sourceTree = "<group>"; };
-		D874742928A6A72000B97E1E /* ActionsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsBuilder.swift; sourceTree = "<group>"; };
 		D874742C28A6A77700B97E1E /* About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = About.swift; sourceTree = "<group>"; };
 		D874742E28A6A7AE00B97E1E /* LicenseWindows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseWindows.swift; sourceTree = "<group>"; };
 		D874743128A6A7DF00B97E1E /* AboutWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutWindow.swift; sourceTree = "<group>"; };
 		D874743328A6A81C00B97E1E /* LicenseContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseContent.swift; sourceTree = "<group>"; };
-		D874743528A6A8E000B97E1E /* CreditsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsBuilder.swift; sourceTree = "<group>"; };
 		D874743728A6AA7400B97E1E /* MacIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacIcon.swift; sourceTree = "<group>"; };
 		D8A06307289DAE13006A8904 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		D8A0630A289DB1FB006A8904 /* OptionalTapGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalTapGesture.swift; sourceTree = "<group>"; };
@@ -206,7 +196,6 @@
 				D85BE804289135550099C2FE /* Locate.entitlements */,
 				D85BE7FB2891354F0099C2FE /* LocateApp.swift */,
 				D85BE7FF289135550099C2FE /* Assets.xcassets */,
-				D874742628A6A6E700B97E1E /* Builders */,
 				D8A06313289E2148006A8904 /* Commands */,
 				D802854E28958DD000565FA3 /* Extensions */,
 				D8A0632428A00C6E006A8904 /* Licenses */,
@@ -246,16 +235,6 @@
 			path = LocateUITests;
 			sourceTree = "<group>";
 		};
-		D874742628A6A6E700B97E1E /* Builders */ = {
-			isa = PBXGroup;
-			children = (
-				D874742928A6A72000B97E1E /* ActionsBuilder.swift */,
-				D874743528A6A8E000B97E1E /* CreditsBuilder.swift */,
-				D874742728A6A70100B97E1E /* LicensesBuilder.swift */,
-			);
-			path = Builders;
-			sourceTree = "<group>";
-		};
 		D874742B28A6A76800B97E1E /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -286,8 +265,6 @@
 		D894DA6A2896594100A4C6A0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D874741E28A6A60700B97E1E /* Acknowledgements.swift */,
-				D874742028A6A63600B97E1E /* Action.swift */,
 				D8202D2B2893D45800C0D319 /* Location.swift */,
 				D8202D272893D36900C0D319 /* Model.swift */,
 				D8202D2D2893D4B100C0D319 /* Place.swift */,
@@ -498,9 +475,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8A06319289E2404006A8904 /* Selection.swift in Sources */,
-				D874742128A6A63600B97E1E /* Action.swift in Sources */,
 				D8A06312289E0BEF006A8904 /* ItemToolbar.swift in Sources */,
-				D874742828A6A70100B97E1E /* LicensesBuilder.swift in Sources */,
 				D874742D28A6A77700B97E1E /* About.swift in Sources */,
 				D874742528A6A6AD00B97E1E /* AboutCommands.swift in Sources */,
 				D8202D282893D36900C0D319 /* Model.swift in Sources */,
@@ -509,7 +484,6 @@
 				D8202D262893D32C00C0D319 /* PlaceForm.swift in Sources */,
 				D8A06310289E0A82006A8904 /* MapToolbar.swift in Sources */,
 				D8A0630B289DB1FB006A8904 /* OptionalTapGesture.swift in Sources */,
-				D874741F28A6A60700B97E1E /* Acknowledgements.swift in Sources */,
 				D874741D28A6A5CF00B97E1E /* Hyperlink.swift in Sources */,
 				D874743828A6AA7400B97E1E /* MacIcon.swift in Sources */,
 				D802855028958DDB00565FA3 /* CLLocationCoordinate2D.swift in Sources */,
@@ -522,12 +496,10 @@
 				D85BE7FE2891354F0099C2FE /* ContentView.swift in Sources */,
 				D8A0630E289E0A21006A8904 /* SelectionToolbar.swift in Sources */,
 				D874743428A6A81C00B97E1E /* LicenseContent.swift in Sources */,
-				D874743628A6A8E000B97E1E /* CreditsBuilder.swift in Sources */,
 				D8A06317289E2196006A8904 /* SelectionCommands.swift in Sources */,
 				D874742328A6A66500B97E1E /* AboutSection.swift in Sources */,
 				D8A06308289DAE13006A8904 /* Color.swift in Sources */,
 				D8A154BC2895534C00E1E037 /* WebView.swift in Sources */,
-				D874742A28A6A72000B97E1E /* ActionsBuilder.swift in Sources */,
 				D85BE7FC2891354F0099C2FE /* LocateApp.swift in Sources */,
 				D84C6EED289BE79D00D89969 /* Fetcher.swift in Sources */,
 				D874742F28A6A7AE00B97E1E /* LicenseWindows.swift in Sources */,

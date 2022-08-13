@@ -13,10 +13,11 @@ struct AboutWindow: Scene {
     var body: some Scene {
         Window("About \(Bundle.main.displayName ?? "")", id: Self.windowID) {
             AboutView(actions: actions, acknowledgements: acknowledgements, licenses: licenses)
-                .frame(width: 640, height: 460)
+                .frame(width: 600, height: 360)
         }
         .windowResizability(.contentSize)
         .defaultPosition(.center)
+        .windowStyle(.hiddenTitleBar)
     }
 
 }

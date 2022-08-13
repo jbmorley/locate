@@ -14,7 +14,7 @@ struct AboutSection<Content: View>: View {
         VStack(alignment: .leading, spacing: 4.0) {
             if let title = title {
                 Text(title)
-                    .font(.title)
+                    .foregroundColor(.secondary)
             }
             content
         }

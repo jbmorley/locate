@@ -22,16 +22,12 @@ struct AboutView: View {
                 .padding()
                 ScrollView {
                     VStack {
-                        Text(Bundle.main.preferredName ?? "")
-                            .font(.system(size: 48, weight: .semibold))
+                        ApplicationNameTitle()
                             .horizontalSpace(.trailing)
-                            .padding(.top)
-                            .padding(.top)
                             .padding(.bottom, 2.0)
-
-                        ForEach(acknowledgements) { credits in
-                            AboutSection(credits.title) {
-                                ForEach(credits.credits) { credit in
+                        ForEach(acknowledgements) { acknowledgements in
+                            AboutSection(acknowledgements.title) {
+                                ForEach(acknowledgements.credits) { credit in
                                     if let url = credit.url {
                                         Text(credit.name)
                                             .hyperlink {
@@ -53,12 +49,11 @@ struct AboutView: View {
                             }
                         }
                     }
-                    .padding([.trailing, .bottom])
-                    .padding(.trailing)
+                    .padding(.top)
                 }
                 .textSelection(.enabled)
             }
-            .background(Color.textBackgroundColor)
+//            .background(Color.textBackgroundColor)
             HStack {
                 Text("Version \(Bundle.main.version ?? "") (\(Bundle.main.build ?? ""))")
                     .foregroundColor(.secondary)
@@ -78,6 +73,7 @@ struct AboutView: View {
                 }
             }
             .padding()
+            .backgroundStyle(.thinMaterial)
         }
     }
 

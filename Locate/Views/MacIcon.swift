@@ -3,7 +3,7 @@ import SwiftUI
 struct MacIcon: View {
 
     struct LayoutMetrics {
-        static let size = 160.0
+        static let size = 152.0
     }
 
     let name: String
