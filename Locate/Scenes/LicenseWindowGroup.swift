@@ -2,7 +2,7 @@ import SwiftUI
 
 import Diligence
 
-struct LicenseWindows: Scene {
+struct LicenseWindowGroup: Scene {
 
     static let windowID = "diligence-license-window"
 

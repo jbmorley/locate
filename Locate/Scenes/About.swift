@@ -18,7 +18,7 @@ struct About: Scene {
 
     var body: some Scene {
         AboutWindow(actions: actions, acknowledgements: acknowledgements, licenses: licenses)
-        LicenseWindows(licenses: licenses)
+        LicenseWindowGroup(licenses: licenses)
     }
 
 }

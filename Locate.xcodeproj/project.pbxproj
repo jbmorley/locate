@@ -34,7 +34,7 @@
 		D874742328A6A66500B97E1E /* AboutSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D874742228A6A66500B97E1E /* AboutSection.swift */; };
 		D874742528A6A6AD00B97E1E /* AboutCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = D874742428A6A6AD00B97E1E /* AboutCommands.swift */; };
 		D874742D28A6A77700B97E1E /* About.swift in Sources */ = {isa = PBXBuildFile; fileRef = D874742C28A6A77700B97E1E /* About.swift */; };
-		D874742F28A6A7AE00B97E1E /* LicenseWindows.swift in Sources */ = {isa = PBXBuildFile; fileRef = D874742E28A6A7AE00B97E1E /* LicenseWindows.swift */; };
+		D874742F28A6A7AE00B97E1E /* LicenseWindowGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D874742E28A6A7AE00B97E1E /* LicenseWindowGroup.swift */; };
 		D874743228A6A7DF00B97E1E /* AboutWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D874743128A6A7DF00B97E1E /* AboutWindow.swift */; };
 		D874743428A6A81C00B97E1E /* LicenseContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D874743328A6A81C00B97E1E /* LicenseContent.swift */; };
 		D874743828A6AA7400B97E1E /* MacIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = D874743728A6AA7400B97E1E /* MacIcon.swift */; };
@@ -101,7 +101,7 @@
 		D874742228A6A66500B97E1E /* AboutSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutSection.swift; sourceTree = "<group>"; };
 		D874742428A6A6AD00B97E1E /* AboutCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCommands.swift; sourceTree = "<group>"; };
 		D874742C28A6A77700B97E1E /* About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = About.swift; sourceTree = "<group>"; };
-		D874742E28A6A7AE00B97E1E /* LicenseWindows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseWindows.swift; sourceTree = "<group>"; };
+		D874742E28A6A7AE00B97E1E /* LicenseWindowGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseWindowGroup.swift; sourceTree = "<group>"; };
 		D874743128A6A7DF00B97E1E /* AboutWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutWindow.swift; sourceTree = "<group>"; };
 		D874743328A6A81C00B97E1E /* LicenseContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseContent.swift; sourceTree = "<group>"; };
 		D874743728A6AA7400B97E1E /* MacIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacIcon.swift; sourceTree = "<group>"; };
@@ -240,7 +240,7 @@
 			children = (
 				D874742C28A6A77700B97E1E /* About.swift */,
 				D874743128A6A7DF00B97E1E /* AboutWindow.swift */,
-				D874742E28A6A7AE00B97E1E /* LicenseWindows.swift */,
+				D874742E28A6A7AE00B97E1E /* LicenseWindowGroup.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -502,7 +502,7 @@
 				D8A154BC2895534C00E1E037 /* WebView.swift in Sources */,
 				D85BE7FC2891354F0099C2FE /* LocateApp.swift in Sources */,
 				D84C6EED289BE79D00D89969 /* Fetcher.swift in Sources */,
-				D874742F28A6A7AE00B97E1E /* LicenseWindows.swift in Sources */,
+				D874742F28A6A7AE00B97E1E /* LicenseWindowGroup.swift in Sources */,
 				D8202D2C2893D45800C0D319 /* Location.swift in Sources */,
 				D8A0631B289FCD23006A8904 /* SearchCommands.swift in Sources */,
 			);

@@ -20,6 +20,7 @@ struct AboutView: View {
                     Spacer()
                 }
                 .padding()
+                .padding([.horizontal])
                 ScrollView {
                     VStack {
                         ApplicationNameTitle()
@@ -39,12 +40,11 @@ struct AboutView: View {
                                 }
                             }
                         }
-                        
                         AboutSection("Licenses") {
                             ForEach(licenses) { license in
                                 Text(license.name)
                                     .hyperlink {
-                                        openWindow(id: LicenseWindows.windowID, value: license.id)
+                                        openWindow(id: LicenseWindowGroup.windowID, value: license.id)
                                     }
                             }
                         }
@@ -53,7 +53,6 @@ struct AboutView: View {
                 }
                 .textSelection(.enabled)
             }
-//            .background(Color.textBackgroundColor)
             HStack {
                 Text("Version \(Bundle.main.version ?? "") (\(Bundle.main.build ?? ""))")
                     .foregroundColor(.secondary)
@@ -73,7 +72,6 @@ struct AboutView: View {
                 }
             }
             .padding()
-            .backgroundStyle(.thinMaterial)
         }
     }
 
