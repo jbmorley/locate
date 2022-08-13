@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D802855028958DDB00565FA3 /* CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = D802854F28958DDB00565FA3 /* CLLocationCoordinate2D.swift */; };
-		D804A87D28A02918002CD7BD /* MacAboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D804A87C28A02918002CD7BD /* MacAboutView.swift */; };
 		D804A87F28A04DF8002CD7BD /* swift-soup-license in Resources */ = {isa = PBXBuildFile; fileRef = D804A87E28A04DF8002CD7BD /* swift-soup-license */; };
 		D804A88128A05017002CD7BD /* hash-rainbow-license in Resources */ = {isa = PBXBuildFile; fileRef = D804A88028A05017002CD7BD /* hash-rainbow-license */; };
 		D804A88328A05CBA002CD7BD /* interact-license in Resources */ = {isa = PBXBuildFile; fileRef = D804A88228A05CBA002CD7BD /* interact-license */; };
@@ -30,14 +29,6 @@
 		D85BE80E289135550099C2FE /* LocateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85BE80D289135550099C2FE /* LocateTests.swift */; };
 		D85BE818289135550099C2FE /* LocateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85BE817289135550099C2FE /* LocateUITests.swift */; };
 		D85BE81A289135550099C2FE /* LocateUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85BE819289135550099C2FE /* LocateUITestsLaunchTests.swift */; };
-		D874741D28A6A5CF00B97E1E /* Hyperlink.swift in Sources */ = {isa = PBXBuildFile; fileRef = D874741C28A6A5CF00B97E1E /* Hyperlink.swift */; };
-		D874742328A6A66500B97E1E /* AboutSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D874742228A6A66500B97E1E /* AboutSection.swift */; };
-		D874742528A6A6AD00B97E1E /* AboutCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = D874742428A6A6AD00B97E1E /* AboutCommands.swift */; };
-		D874742D28A6A77700B97E1E /* About.swift in Sources */ = {isa = PBXBuildFile; fileRef = D874742C28A6A77700B97E1E /* About.swift */; };
-		D874742F28A6A7AE00B97E1E /* LicenseWindowGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D874742E28A6A7AE00B97E1E /* LicenseWindowGroup.swift */; };
-		D874743228A6A7DF00B97E1E /* AboutWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D874743128A6A7DF00B97E1E /* AboutWindow.swift */; };
-		D874743428A6A81C00B97E1E /* LicenseContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D874743328A6A81C00B97E1E /* LicenseContent.swift */; };
-		D874743828A6AA7400B97E1E /* MacIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = D874743728A6AA7400B97E1E /* MacIcon.swift */; };
 		D8A06308289DAE13006A8904 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A06307289DAE13006A8904 /* Color.swift */; };
 		D8A0630B289DB1FB006A8904 /* OptionalTapGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A0630A289DB1FB006A8904 /* OptionalTapGesture.swift */; };
 		D8A0630E289E0A21006A8904 /* SelectionToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A0630D289E0A21006A8904 /* SelectionToolbar.swift */; };
@@ -72,7 +63,6 @@
 
 /* Begin PBXFileReference section */
 		D802854F28958DDB00565FA3 /* CLLocationCoordinate2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2D.swift; sourceTree = "<group>"; };
-		D804A87C28A02918002CD7BD /* MacAboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacAboutView.swift; sourceTree = "<group>"; };
 		D804A87E28A04DF8002CD7BD /* swift-soup-license */ = {isa = PBXFileReference; lastKnownFileType = text; path = "swift-soup-license"; sourceTree = "<group>"; };
 		D804A88028A05017002CD7BD /* hash-rainbow-license */ = {isa = PBXFileReference; lastKnownFileType = text; path = "hash-rainbow-license"; sourceTree = "<group>"; };
 		D804A88228A05CBA002CD7BD /* interact-license */ = {isa = PBXFileReference; lastKnownFileType = text; path = "interact-license"; sourceTree = "<group>"; };
@@ -97,14 +87,6 @@
 		D85BE813289135550099C2FE /* LocateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocateUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D85BE817289135550099C2FE /* LocateUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocateUITests.swift; sourceTree = "<group>"; };
 		D85BE819289135550099C2FE /* LocateUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocateUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		D874741C28A6A5CF00B97E1E /* Hyperlink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hyperlink.swift; sourceTree = "<group>"; };
-		D874742228A6A66500B97E1E /* AboutSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutSection.swift; sourceTree = "<group>"; };
-		D874742428A6A6AD00B97E1E /* AboutCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCommands.swift; sourceTree = "<group>"; };
-		D874742C28A6A77700B97E1E /* About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = About.swift; sourceTree = "<group>"; };
-		D874742E28A6A7AE00B97E1E /* LicenseWindowGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseWindowGroup.swift; sourceTree = "<group>"; };
-		D874743128A6A7DF00B97E1E /* AboutWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutWindow.swift; sourceTree = "<group>"; };
-		D874743328A6A81C00B97E1E /* LicenseContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseContent.swift; sourceTree = "<group>"; };
-		D874743728A6AA7400B97E1E /* MacIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacIcon.swift; sourceTree = "<group>"; };
 		D8A06307289DAE13006A8904 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		D8A0630A289DB1FB006A8904 /* OptionalTapGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalTapGesture.swift; sourceTree = "<group>"; };
 		D8A0630D289E0A21006A8904 /* SelectionToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionToolbar.swift; sourceTree = "<group>"; };
@@ -201,7 +183,6 @@
 				D8A0632428A00C6E006A8904 /* Licenses */,
 				D894DA6A2896594100A4C6A0 /* Model */,
 				D85BE801289135550099C2FE /* Preview Content */,
-				D874742B28A6A76800B97E1E /* Scenes */,
 				D8A0630C289E0A09006A8904 /* Toolbars */,
 				D84C6EEB289BE78D00D89969 /* Utilities */,
 				D8A06309289DB1E6006A8904 /* View Modifiers */,
@@ -235,29 +216,15 @@
 			path = LocateUITests;
 			sourceTree = "<group>";
 		};
-		D874742B28A6A76800B97E1E /* Scenes */ = {
-			isa = PBXGroup;
-			children = (
-				D874742C28A6A77700B97E1E /* About.swift */,
-				D874743128A6A7DF00B97E1E /* AboutWindow.swift */,
-				D874742E28A6A7AE00B97E1E /* LicenseWindowGroup.swift */,
-			);
-			path = Scenes;
-			sourceTree = "<group>";
-		};
 		D894DA692896591800A4C6A0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D874742228A6A66500B97E1E /* AboutSection.swift */,
-				D804A87C28A02918002CD7BD /* MacAboutView.swift */,
 				D85BE7FD2891354F0099C2FE /* ContentView.swift */,
-				D874743328A6A81C00B97E1E /* LicenseContent.swift */,
 				D8202D292893D42500C0D319 /* MapView.swift */,
 				D8202D252893D32C00C0D319 /* PlaceForm.swift */,
 				D8202D232893D2C400C0D319 /* PlaceList.swift */,
 				D808A93C28967F3E00586A2B /* TagList.swift */,
 				D8A154BB2895534C00E1E037 /* WebView.swift */,
-				D874743728A6AA7400B97E1E /* MacIcon.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -276,7 +243,6 @@
 		D8A06309289DB1E6006A8904 /* View Modifiers */ = {
 			isa = PBXGroup;
 			children = (
-				D874741C28A6A5CF00B97E1E /* Hyperlink.swift */,
 				D8A0630A289DB1FB006A8904 /* OptionalTapGesture.swift */,
 			);
 			path = "View Modifiers";
@@ -295,7 +261,6 @@
 		D8A06313289E2148006A8904 /* Commands */ = {
 			isa = PBXGroup;
 			children = (
-				D874742428A6A6AD00B97E1E /* AboutCommands.swift */,
 				D8A06314289E216A006A8904 /* ItemCommands.swift */,
 				D8A0631A289FCD22006A8904 /* SearchCommands.swift */,
 				D8A06316289E2196006A8904 /* SelectionCommands.swift */,
@@ -476,33 +441,24 @@
 			files = (
 				D8A06319289E2404006A8904 /* Selection.swift in Sources */,
 				D8A06312289E0BEF006A8904 /* ItemToolbar.swift in Sources */,
-				D874742D28A6A77700B97E1E /* About.swift in Sources */,
-				D874742528A6A6AD00B97E1E /* AboutCommands.swift in Sources */,
 				D8202D282893D36900C0D319 /* Model.swift in Sources */,
 				D82A94FF2896897900085E03 /* String.swift in Sources */,
 				D8202D2A2893D42500C0D319 /* MapView.swift in Sources */,
 				D8202D262893D32C00C0D319 /* PlaceForm.swift in Sources */,
 				D8A06310289E0A82006A8904 /* MapToolbar.swift in Sources */,
 				D8A0630B289DB1FB006A8904 /* OptionalTapGesture.swift in Sources */,
-				D874741D28A6A5CF00B97E1E /* Hyperlink.swift in Sources */,
-				D874743828A6AA7400B97E1E /* MacIcon.swift in Sources */,
 				D802855028958DDB00565FA3 /* CLLocationCoordinate2D.swift in Sources */,
 				D8202D2E2893D4B100C0D319 /* Place.swift in Sources */,
 				D8202D242893D2C400C0D319 /* PlaceList.swift in Sources */,
-				D874743228A6A7DF00B97E1E /* AboutWindow.swift in Sources */,
 				D808A93D28967F3E00586A2B /* TagList.swift in Sources */,
 				D8A06315289E216A006A8904 /* ItemCommands.swift in Sources */,
-				D804A87D28A02918002CD7BD /* MacAboutView.swift in Sources */,
 				D85BE7FE2891354F0099C2FE /* ContentView.swift in Sources */,
 				D8A0630E289E0A21006A8904 /* SelectionToolbar.swift in Sources */,
-				D874743428A6A81C00B97E1E /* LicenseContent.swift in Sources */,
 				D8A06317289E2196006A8904 /* SelectionCommands.swift in Sources */,
-				D874742328A6A66500B97E1E /* AboutSection.swift in Sources */,
 				D8A06308289DAE13006A8904 /* Color.swift in Sources */,
 				D8A154BC2895534C00E1E037 /* WebView.swift in Sources */,
 				D85BE7FC2891354F0099C2FE /* LocateApp.swift in Sources */,
 				D84C6EED289BE79D00D89969 /* Fetcher.swift in Sources */,
-				D874742F28A6A7AE00B97E1E /* LicenseWindowGroup.swift in Sources */,
 				D8202D2C2893D45800C0D319 /* Location.swift in Sources */,
 				D8A0631B289FCD23006A8904 /* SearchCommands.swift in Sources */,
 			);
