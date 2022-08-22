@@ -1,1 +1,25 @@
-{"systemImage":"globe.asia.australia.fill","topColor":{"red":0,"alpha":1,"blue":0.57369142770000003,"green":0.98106676339999999},"iconScale":0.86973373306381119,"id":"8B985C8F-3947-4A11-A0A5-C834272A2A5B","symbolColor":{"red":1,"alpha":1,"blue":1,"green":1},"shadowOpacity":0.2816583806818182,"shadowHeight":0.15797844733391611,"bottomColor":{"red":0.46202266219999999,"alpha":1,"blue":1,"green":0.83828371759999998}}
+{
+  "systemImage" : "globe.asia.australia.fill",
+  "topColor" : {
+    "red" : 0,
+    "alpha" : 1,
+    "blue" : 0.57369142770000003,
+    "green" : 0.98106676339999999
+  },
+  "iconScale" : 0.86973373306381119,
+  "id" : "8B985C8F-3947-4A11-A0A5-C834272A2A5B",
+  "symbolColor" : {
+    "red" : 1,
+    "alpha" : 1,
+    "blue" : 1,
+    "green" : 1
+  },
+  "shadowOpacity" : 0.38571179796765737,
+  "shadowHeight" : 0.15797844733391611,
+  "bottomColor" : {
+    "red" : 0.46202266219999999,
+    "alpha" : 1,
+    "blue" : 1,
+    "green" : 0.83828371759999998
+  }
+}
