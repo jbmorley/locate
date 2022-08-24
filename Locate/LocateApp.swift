@@ -57,7 +57,6 @@ struct LocateApp: App {
                 Credit("Sarah Barbour")
             }
         } licenses: {
-            License("Diligence", author: "InSeven Limited", filename: "diligence-license")
             License("HashRainbow", author: "Sarah Barbour", filename: "hash-rainbow-license")
             License("Interact", author: "InSeven Limited", filename: "interact-license")
             License("SwiftSoup", author: "Nabil Chatbi", filename: "swift-soup-license")

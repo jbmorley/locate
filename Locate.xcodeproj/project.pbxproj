@@ -40,7 +40,6 @@
 		D8A0631B289FCD23006A8904 /* SearchCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A0631A289FCD22006A8904 /* SearchCommands.swift */; };
 		D8A06320289FFE2D006A8904 /* Interact in Frameworks */ = {isa = PBXBuildFile; productRef = D8A0631F289FFE2D006A8904 /* Interact */; };
 		D8A0632328A001D4006A8904 /* Diligence in Frameworks */ = {isa = PBXBuildFile; productRef = D8A0632228A001D4006A8904 /* Diligence */; };
-		D8A0632628A00C8A006A8904 /* diligence-license in Resources */ = {isa = PBXBuildFile; fileRef = D8A0632528A00C8A006A8904 /* diligence-license */; };
 		D8A154BC2895534C00E1E037 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A154BB2895534C00E1E037 /* WebView.swift */; };
 /* End PBXBuildFile section */
 
@@ -98,7 +97,6 @@
 		D8A0631A289FCD22006A8904 /* SearchCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCommands.swift; sourceTree = "<group>"; };
 		D8A0631D289FFDF0006A8904 /* interact */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = interact; sourceTree = "<group>"; };
 		D8A06321289FFEE5006A8904 /* diligence */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = diligence; sourceTree = "<group>"; };
-		D8A0632528A00C8A006A8904 /* diligence-license */ = {isa = PBXFileReference; lastKnownFileType = text; path = "diligence-license"; sourceTree = "<group>"; };
 		D8A154BB2895534C00E1E037 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -287,7 +285,6 @@
 		D8A0632428A00C6E006A8904 /* Licenses */ = {
 			isa = PBXGroup;
 			children = (
-				D8A0632528A00C8A006A8904 /* diligence-license */,
 				D804A88028A05017002CD7BD /* hash-rainbow-license */,
 				D804A88228A05CBA002CD7BD /* interact-license */,
 				D804A87E28A04DF8002CD7BD /* swift-soup-license */,
@@ -412,7 +409,6 @@
 				D804A88128A05017002CD7BD /* hash-rainbow-license in Resources */,
 				D85BE803289135550099C2FE /* Preview Assets.xcassets in Resources */,
 				D804A88328A05CBA002CD7BD /* interact-license in Resources */,
-				D8A0632628A00C8A006A8904 /* diligence-license in Resources */,
 				D85BE800289135550099C2FE /* Assets.xcassets in Resources */,
 				D804A87F28A04DF8002CD7BD /* swift-soup-license in Resources */,
 			);
