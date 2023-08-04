@@ -20,6 +20,8 @@
 
 import SwiftUI
 
+import SwiftSoup
+
 extension String {
 
     static let tagSeparatorCharacterSet = CharacterSet(charactersIn: ", ")
@@ -36,6 +38,70 @@ extension String {
         }
         let characterSet = CharacterSet(charactersIn: String(lastCharacter))
         return characterSet.isSubset(of: Self.tagSeparatorCharacterSet)
+    }
+
+}
+
+enum ParseError: Error {
+    case invalidEncoding
+}
+
+extension URL {
+
+    func document() async throws -> Document {
+        let request = URLRequest(url: self)
+        let (data, response) = try await URLSession.shared.data(for: request)
+        guard let contents = String(data: data, encoding: .utf8) else {
+            throw ParseError.invalidEncoding
+        }
+        return try SwiftSoup.parse(contents, absoluteString)
+    }
+
+    func addresses() async -> [String] {
+        return []
+    }
+
+}
+
+extension Document {
+
+    func structuredText() throws -> String {
+        let elements = try getAllElements()
+        var multilineContents: String = ""
+        for element in elements {
+            for textNode in element.textNodes() {
+                let element = textNode.text().trimmingCharacters(in: .whitespacesAndNewlines)
+                guard !element.isEmpty else {
+                    continue
+                }
+                multilineContents.append(contentsOf: textNode.text())
+                multilineContents.append(contentsOf: "\n")
+            }
+        }
+        return multilineContents
+    }
+
+    func addresses() throws -> [String] {
+        return try structuredText().addresses()
+    }
+
+}
+
+extension String {
+
+    func addresses() throws -> [String] {
+        let types: NSTextCheckingResult.CheckingType = [.address]
+        let detector = try NSDataDetector(types: types.rawValue)
+        let range = NSRange(startIndex..<endIndex, in: self)
+        var addresses: [String] = []
+        detector.enumerateMatches(in: self, options: [], range: range) { result, flags, _ in
+            guard let range = result?.range else {
+                return
+            }
+            let nsContents = self as NSString
+            addresses.append(nsContents.substring(with: range) as String)
+        }
+        return addresses
     }
 
 }
@@ -87,7 +153,7 @@ class PlaceFormModel: ObservableObject {
             await MainActor.run {
                 isUpdating = true
             }
-            let title = await Fetcher.title(for: url)
+            let title = try? await url.document().addresses().first
             await MainActor.run {
                 isUpdating = false
                 guard let title = title, address.isEmpty else {
